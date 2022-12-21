@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}SAFER IMM
+			{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link
+		rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/favicon.png") }}">
+		<!-- Bootstrap core CSS -->
+		<link
+		href="{{ asset("assets/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css">
+		<!--Custom CSS-->
+		<link
+		href="{{asset("assets/css/style.css")}}" rel="stylesheet" type="text/css">
+		<!--Plugin CSS-->
+		<link
+		href="{{asset("assets/css/plugin.css")}}" rel="stylesheet" type="text/css">
+		<!--Flaticons CSS-->
+		<link
+		href="{{asset("assets/fonts/flaticon.css")}}" rel="stylesheet" type="text/css">
+		<!--Font Awesome-->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+		<link rel="stylesheet" href="{{asset("assets/fonts/line-icons.css")}}" type="text/css">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+
+
+	</head>
+
+
+	<body>
+		{% block body %}
+			{{ include ('header.html.twig') }}
+
+			{{ include ('bodyHome.html.twig') }}
+
+			{{ include ('footer.html.twig') }}
+
+
+		{% endblock %}
+
+
+	</body>
+
+
+	<script src="{{asset("assets/js/jquery-3.5.1.min.js")}}"></script>
+	<script src="{{asset("assets/js/bootstrap.min.js")}}"></script>
+	<script src="{{asset("assets/js/plugin.js")}}"></script>
+	<script src="{{asset("assets/js/main.js")}}"></script>
+	<script src="{{asset("assets/js/custom-swiper.js")}}"></script>
+	<script src="{{asset("assets/js/custom-nav.js")}}"></script>
+</html></body></html>
