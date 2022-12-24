@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>
-			{% block title %}SAFER IMM
+			{% block title %}SAFER IMMOBILIER
 			{% endblock %}
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,16 +35,425 @@
 
 
 	<body>
-		{% block body %}
-			{{ include ('header.html.twig') }}
 
-			{{ include ('bodyHome.html.twig') }}
+		{% block header %}
+			<!-- Preloader -->
+			<div id="preloader">
+				<div id="status"></div>
+			</div>
+			<!-- Preloader Ends -->
 
-			{{ include ('footer.html.twig') }}
+			<!-- header starts -->
+			<header
+				class="main_header_area headerstye-1">
+				<!-- Navigation Bar -->
+				<div class="header_menu" id="header_menu">
+					<nav class="navbar navbar-default">
+						<div class="container">
+							<div
+								class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-3 pt-3">
+								<!-- Brand and toggle get grouped for better mobile display -->
+								<div class="navbar-header">
+									<a class="navbar-brand" href="index.html">
+										<img src="{{asset("assets/images/images/logo-white.png")}}" alt="image">
+										<img src="{{asset("assets/images/logo.png")}}" alt="image">
+									</a>
+								</div>
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav" id="responsive-menu">
+										<li class="dropdown submenu active">
+											<a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
+												<i class="icon-arrow-down" aria-hidden="true"></i>
+											</a>
+											<ul class="dropdown-menu">
+												<li>
+													<a href="index.html">Homepage Default</a>
+												</li>
+												<li>
+													<a href="index-1.html">Homepage 1</a>
+												</li>
+												<li>
+													<a href="index-2.html">Homepage 2</a>
+												</li>
+												<li>
+													<a href="index-3.html">Homepage 3</a>
+												</li>
+												<li>
+													<a href="index-4.html">Homepage 4</a>
+												</li>
+											</ul>
+										</li>
+
+										<li>
+											<a href="about.html">A PROPOS DE NOUS</a>
+										</li>
+										<li class="submenu dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+												<i class="icon-arrow-down" aria-hidden="true"></i>
+											</a>
+											<ul
+												class="dropdown-menu">
+												<!--	<li class="submenu dropdown">
+																																																																																																																																																																																																																																											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing List<i class="fa fa-angle-right" aria-hidden="true"></i>
+																																																																																																																																																																																																																																											</a>
+																																																																																																																																																																																																																																											<ul class="dropdown-menu">
+																																																																																																																																																																																																																																												<li>
+																																																																																																																																																																																																																																													<a href="listing-leftfilter.html">Listing Left Filter</a>
+																																																																																																																																																																																																																																												</li>
+																																																																																																																																																																																																																																												<li>
+																																																																																																																																																																																																																																													<a href="listing-rightfilter.html">Listing Right Filter</a>
+																																																																																																																																																																																																																																												</li>
+																																																																																																																																																																																																																																												<li>
+																																																																																																																																																																																																																																													<a href="listing-fullwidth.html">Listing Fullwidth</a>
+																																																																																																																																																																																																																																												</li>
+																																																																																																																																																																																																																																											</ul>
+																																																																																																																																																																																																																																										</li> -->
+												<li class="submenu dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
+													</a>
+													<ul class="dropdown-menu">
+														<li>
+															<a href="{{path('app_categories_terrain')}}">TERRRAIN AGRICOLE</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_prairie')}}">PRAIRIE</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_bois')}}">BOIS</a>
+															<!--Pas encore ajouter dans le controller-->
+														</li>
+														<li>
+															<a href="{{path('app_categorie_batiments')}}">BATIMENTS</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
+														</li>
+														<!--	<li>
+																																																																																																											<a href="grid-rightfilter.html">Grid Right Filter</a>
+																																																																																																										</li>
+																																																																																																										-->
+														<li>
+															<a href="{{path('app_categories')}}">Full categories</a>
+														</li>
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li class="submenu dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages
+												<i class="icon-arrow-down" aria-hidden="true"></i>
+											</a>
+											<ul class="dropdown-menu">
+
+												<li class="submenu dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agency<i class="fa fa-angle-right" aria-hidden="true"></i>
+													</a>
+													<ul class="dropdown-menu">
+														<li>
+															<a href="agencies.html">Agency Grid</a>
+														</li>
+														<li>
+															<a href="agencies1.html">Agency List</a>
+														</li>
+
+													</ul>
+												</li>
+
+												<li class="submenu dropdown">
+													<a href="gallery.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery<i class="fa fa-angle-right" aria-hidden="true"></i>
+													</a>
+													<ul class="dropdown-menu">
+														<li>
+															<a href="gallery.html">Gallery</a>
+														</li>
+														<li>
+															<a href="gallery1.html">Gallery Masonry</a>
+														</li>
+													</ul>
+												</li>
+
+
+												<li>
+													<a href="{{path('app_faq')}}">Faq</a>
+												</li>
+
+												<!--<li class="submenu dropdown">
+																																																																																																																									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<i class="fa fa-angle-right" aria-hidden="true"></i>
+																																																																																																																									</a>
+																																																																																																																									<ul class="dropdown-menu">
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard.html">Dashboard</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-my-profile.html">User Profile</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-messages.html">User Messages</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-add-new.html">Add New</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-list.html">Listing</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-list.html">User Wishlist</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-history.html">History</a>
+																																																																																																																										</li>
+																																																																																																																										<li>
+																																																																																																																											<a href="dashboard-reviews.html">Reviews</a>
+																																																																																																																										</li>
+																																																																																																																									</ul>
+																																																																																																																								</li>-->
+											</ul>
+										</li>
+										<li>
+											<a href="{{path('app_contact')}}">Contact Us</a>
+										</li>
+									</div>
+
+									<!-- /.navbar-collapse -->
+									<div class="register-login d-flex align-items-center">
+										<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 white">
+											<i class="fa fa-user"></i>
+											Login/Register
+										</a>
+										<div class="header_sidemenu me-3">
+											<div class="mhead">
+												<span class="menu-ham">
+													<a href="#" class="cart-icon d-flex align-items-center ms-1">
+														<i class="fa fa-th-large fs-5 black bg-grey p-2"></i>
+													</a>
+												</span>
+											</div>
+										</div>
+										<a href="#" class="nir-btn white">Add Listing</a>
+									</div>
+
+									<div id="slicknav-mobile"></div>
+								</div>
+							</div>
+							<!-- /.container-fluid -->
+						</nav>
+					</div>
+					<!-- Navigation Bar Ends -->
+				</header>
+				<!-- header ends -->
+
+				<!-- header side menu -->
+				<div class="header_sidemenu">
+					<div class="header_sidemenu_in">
+						<div class="menu py-5 px-4">
+							<div class="close-menu">
+								<i class="fa fa-times"></i>
+							</div>
+							<div class="m-contentmain">
+								<div class="m-contentmain">
+									<div class="m-logo mb-5">
+										<img src="images/logo.png" alt="m-logo">
+									</div>
+
+									<div class="content-box mb-5">
+										<h3 class="">Get In Touch</h3>
+										<p class="mb-2">We must explain to you how all seds this mistakens idea off denouncing pleasures and praising pain was born and I will give you a completed accounts..</p>
+										<a href="#" class="nir-btn">Consultation</a>
+									</div>
+
+									<div class="contact-info1">
+										<h3 class="">Contact Info</h3>
+										<ul>
+											<li class="d-block mb-1">
+												<i class="fa fa-map-marker-alt me-2"></i>
+												Brozon Mall 26, Newyrok NY 10005</li>
+											<li class="d-block mb-1">
+												<i class="fa fa-phone-alt me-2"></i>555 626-0234</li>
+											<li class="d-block mb-1">
+												<i class="fa fa-envelope-open me-2"></i>support@realshield.com</li>
+											<li class="d-block">
+												<i class="fa fa-clock me-2"></i>
+												Open Time: 09.00 to 18.00</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="overlay hide"></div>
+					</div>
+				</div>
+			{% endblock %}
+
+
+			{% block body %}
+
+
+				{{ include ('bodyHome.html.twig') }}
+
+
+			{% endblock %}
+
+
+			{% block footer %}
+				<!-- footer starts -->
+				<footer class="pt-10 footermain">
+					<div class="footer-upper pb-4">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+									<div class="footer-about">
+										<img
+										src="images/logo-white.png" alt="">
+										<!--			<p class="mt-3 mb-3 white">
+																																																																	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
+																																																																</p>
+																																																																-->
+										<ul>
+											<li class="white">
+												<strong>PO Box:</strong>
+												+47-252-254-2542</li>
+											<li class="white">
+												<strong>Location:</strong>
+												Collins Street, sydney, Australia</li>
+											<li class="white">
+												<strong>Email:</strong>
+												info@realshield.com</li>
+											<li class="white">
+												<strong>Website:</strong>
+												www.realshield.com</li>
+										</ul>
+									</div>
+								</div>
+								<!--	<div class="col-lg-2 col-md-6 col-sm-12 mb-4">
+																																																					<div class="footer-links">
+																																																						<h3 class="white">Quick link</h3>
+																																																						<ul>
+																																																							<li><a href="about-us.html">About Us</a></li>
+																																																							<li><a href="about-us.html">Delivery Information</a></li>
+																																																							<li><a href="about-us.html">Privacy Policy</a></li>
+																																																							<li><a href="about-us.html">Terms &amp; Conditions</a></li>
+																																																							<li><a href="about-us.html">Customer Service</a></li>
+																																																							<li><a href="#about-us.html">Return Policy</a></li>
+																																																						</ul>
+																																																					</div>
+																																																				</div>
+																																																		-->
+							<!--	<div class="col-lg-2 col-md-6 col-sm-12 mb-4">
+																																																					<div class="footer-links">
+																																																						<h3 class="white">Popular Tags</h3>
+																																																						<div class="tagcloud">
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Beautiful</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Public</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Technology</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Travel</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Entertainment</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Blog</a>
+																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Sports
+																																																							</a>
+																																																						</div>
+																																																					</div>
+																																																				</div>
+																																																				-->
+								<!--	<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+																																																									<div class="footer-links">
+																																																										<h3 class="white">Popular Posts</h3>
+																																																										<div class="trend-main">
+																																																											<div class="trend-item d-flex align-items-center mb-2">
+																																																												<div class="trend-image w-25 me-4">
+																																																													<img src="images/trending/trending4.jpg" alt="image">
+																																																												</div>
+																																																												<div class="trend-content-main w-75">
+																																																													<div class="trend-content">
+																																																														<h5 class="mb-1">
+																																																															<a href="detail-1.html">3 Easy Ways To Make Your iPhone Faster</a>
+																																																														</h5>
+																																																														<div class="entry-meta">
+																																																															<div class="entry-metalist d-flex align-items-center">
+																																																																<small>
+																																																																	<a href="post-grid-1.html" class="white">
+																																																																		<i class="fa fa-calendar"></i>
+																																																																		22 Mar 2021</a>
+																																																																</small>
+																																																															</div>
+																																																														</div>
+																																																													</div>
+																																																												</div>
+																																																											</div>
+																																																				
+																																																											<div class="trend-item d-flex align-items-center mb-2">
+																																																												<div class="trend-image w-25 me-4">
+																																																													<img src="images/trending/trending5.jpg" alt="image">
+																																																												</div>
+																																																												<div class="trend-content-main w-75">
+																																																													<div class="trend-content">
+																																																														<h5 class="mb-1">
+																																																															<a href="detail-1.html">Facts About Business That Will Help You Success</a>
+																																																														</h5>
+																																																														<div class="entry-meta">
+																																																															<div class="entry-metalist d-flex align-items-center">
+																																																																<small>
+																																																																	<a href="post-grid-1.html" class="white">
+																																																																		<i class="fa fa-calendar"></i>
+																																																																		22 Mar 2021</a>
+																																																																</small>
+																																																															</div>
+																																																														</div>
+																																																													</div>
+																																																												</div>
+																																																											</div>
+																																																				
+																																																											<div class="trend-item d-flex align-items-center mb-2">
+																																																												<div class="trend-image w-25 me-4">
+																																																													<img src="images/trending/trending6.jpg" alt="image">
+																																																												</div>
+																																																												<div class="trend-content-main w-75">
+																																																													<div class="trend-content">
+																																																														<h5 class="mb-1">
+																																																															<a href="detail-1.html">Your Light Is About To Stop Being Relevant</a>
+																																																														</h5>
+																																																														<div class="entry-meta">
+																																																															<div class="entry-metalist d-flex align-items-center">
+																																																																<small>
+																																																																	<a href="post-grid-1.html" class="white">
+																																																																		<i class="fa fa-calendar"></i>
+																																																																		22 Mar 2021</a>
+																																																																</small>
+																																																															</div>
+																																																														</div>
+																																																													</div>
+																																																												</div>
+																																																											</div>
+																																																										</div>
+																																																									</div>
+																																																									-->
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright pt-2 pb-2">
+					<div class="container">
+						<div class="copyright-inner d-md-flex align-items-center justify-content-between">
+							<div class="copyright-text">
+								<p class="m-0 white">2022 Copyright All rights reserved.</p>
+							</div>
+							<div class="social-links">
+								<ul>
+									<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+			<!-- footer ends -->
 
 
 		{% endblock %}
-
 
 	</body>
 
@@ -55,4 +464,4 @@
 	<script src="{{asset("assets/js/main.js")}}"></script>
 	<script src="{{asset("assets/js/custom-swiper.js")}}"></script>
 	<script src="{{asset("assets/js/custom-nav.js")}}"></script>
-</html></body></html>
+</html></body></html></body></html>

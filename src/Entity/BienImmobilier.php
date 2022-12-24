@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\BienRepository;
+use App\Repository\BienImmobilierRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
- * @ORM\Entity(repositoryClass=BienRepository::class)
+ * @ORM\Entity(repositoryClass=BienImmobilierRepository::class)
  */
-class Bien
+class BienImmobilier
 {
     /**
      * @ORM\Id
@@ -29,27 +28,14 @@ class Bien
     private $prix;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
     private $url;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $cp;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="Bien")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $biens;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="bien")
-     */
-    private $categories;
-
-
+    private $codePostal;
 
     public function getId(): ?int
     {
@@ -92,38 +78,14 @@ class Bien
         return $this;
     }
 
-    public function getCp(): ?int
+    public function getCodePostal(): ?int
     {
-        return $this->cp;
+        return $this->codePostal;
     }
 
-    public function setCp(int $cp): self
+    public function setCodePostal(int $codePostal): self
     {
-        $this->cp = $cp;
-
-        return $this;
-    }
-
-    public function getBiens(): ?Categories
-    {
-        return $this->biens;
-    }
-
-    public function setBiens(?Categories $biens): self
-    {
-        $this->biens = $biens;
-
-        return $this;
-    }
-
-    public function getCategories(): ?Categories
-    {
-        return $this->categories;
-    }
-
-    public function setCategories(?Categories $categories): self
-    {
-        $this->categories = $categories;
+        $this->codePostal = $codePostal;
 
         return $this;
     }
