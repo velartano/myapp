@@ -24,7 +24,7 @@
 					<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav" id="responsive-menu">
 							<li class="dropdown submenu active">
-								<a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
+								<a href="{{ path('app_header') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
 									<i class="icon-arrow-down" aria-hidden="true"></i>
 								</a>
 								<ul class="dropdown-menu">
@@ -56,20 +56,20 @@
 								<ul
 									class="dropdown-menu">
 									<!--	<li class="submenu dropdown">
-																																																																																																																																																																			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing List<i class="fa fa-angle-right" aria-hidden="true"></i>
-																																																																																																																																																																			</a>
-																																																																																																																																																																			<ul class="dropdown-menu">
-																																																																																																																																																																				<li>
-																																																																																																																																																																					<a href="listing-leftfilter.html">Listing Left Filter</a>
-																																																																																																																																																																				</li>
-																																																																																																																																																																				<li>
-																																																																																																																																																																					<a href="listing-rightfilter.html">Listing Right Filter</a>
-																																																																																																																																																																				</li>
-																																																																																																																																																																				<li>
-																																																																																																																																																																					<a href="listing-fullwidth.html">Listing Fullwidth</a>
-																																																																																																																																																																				</li>
-																																																																																																																																																																			</ul>
-																																																																																																																																																																		</li> -->
+																																																																																																																																																																																					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing List<i class="fa fa-angle-right" aria-hidden="true"></i>
+																																																																																																																																																																																					</a>
+																																																																																																																																																																																					<ul class="dropdown-menu">
+																																																																																																																																																																																						<li>
+																																																																																																																																																																																							<a href="listing-leftfilter.html">Listing Left Filter</a>
+																																																																																																																																																																																						</li>
+																																																																																																																																																																																						<li>
+																																																																																																																																																																																							<a href="listing-rightfilter.html">Listing Right Filter</a>
+																																																																																																																																																																																						</li>
+																																																																																																																																																																																						<li>
+																																																																																																																																																																																							<a href="listing-fullwidth.html">Listing Fullwidth</a>
+																																																																																																																																																																																						</li>
+																																																																																																																																																																																					</ul>
+																																																																																																																																																																																				</li> -->
 									<li class="submenu dropdown">
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
 										</a>
@@ -91,9 +91,9 @@
 												<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
 											</li>
 											<!--	<li>
-																							<a href="grid-rightfilter.html">Grid Right Filter</a>
-																						</li>
-																						-->
+																																													<a href="grid-rightfilter.html">Grid Right Filter</a>
+																																												</li>
+																																												-->
 											<li>
 												<a href="{{path('app_categories')}}">Full categories</a>
 											</li>
@@ -141,35 +141,35 @@
 									</li>
 
 									<!--<li class="submenu dropdown">
-																																																	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<i class="fa fa-angle-right" aria-hidden="true"></i>
-																																																	</a>
-																																																	<ul class="dropdown-menu">
-																																																		<li>
-																																																			<a href="dashboard.html">Dashboard</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-my-profile.html">User Profile</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-messages.html">User Messages</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-add-new.html">Add New</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-list.html">Listing</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-list.html">User Wishlist</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-history.html">History</a>
-																																																		</li>
-																																																		<li>
-																																																			<a href="dashboard-reviews.html">Reviews</a>
-																																																		</li>
-																																																	</ul>
-																																																</li>-->
+																																																																			<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<i class="fa fa-angle-right" aria-hidden="true"></i>
+																																																																			</a>
+																																																																			<ul class="dropdown-menu">
+																																																																				<li>
+																																																																					<a href="dashboard.html">Dashboard</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-my-profile.html">User Profile</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-messages.html">User Messages</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-add-new.html">Add New</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-list.html">Listing</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-list.html">User Wishlist</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-history.html">History</a>
+																																																																				</li>
+																																																																				<li>
+																																																																					<a href="dashboard-reviews.html">Reviews</a>
+																																																																				</li>
+																																																																			</ul>
+																																																																		</li>-->
 								</ul>
 							</li>
 							<li>

@@ -1,0 +1,485 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+	<!-- BreadCrumb Starts -->
+	<section class="breadcrumb-main pb-0 pt-20" style="background-image: url(images/bg/bg2.jpg);">
+		<div class="breadcrumb-outer">
+			<div class="container">
+				<div class="breadcrumb-content d-md-flex align-items-center pt-6">
+					<h1 class="mb-0">Listing With Fullwidth</h1>
+					<nav aria-label="breadcrumb">
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item">
+								<a href="#">Home</a>
+							</li>
+							<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+		<div class="dot-overlay"></div>
+	</section>
+	<!-- BreadCrumb Ends -->
+
+	<!-- blog starts -->
+	<section class="blog">
+		<div class="container">
+			<div class="listing-main listing-main1 ps-5 pe-5">
+				<form class="form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4">
+					<div class="form-group me-2">
+						<div class="input-box">
+							<select class="niceSelect">
+								<option value="1">Locations</option>
+								<option value="2">Boston</option>
+								<option value="3">03</option>
+								<option value="4">Chicago</option>
+								<option value="5">Denver</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group me-2">
+						<div class="input-box">
+							<select class="niceSelect">
+								<option value="1">All Types</option>
+								<option value="2">Apartment</option>
+								<option value="3">Villa</option>
+								<option value="4">Flat</option>
+								<option value="5">Rooms</option>
+								<option value="5">House</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group me-2">
+						<div class="input-box">
+							<select class="niceSelect">
+								<option value="1">All Status</option>
+								<option value="2">For Rent</option>
+								<option value="3">For Sale</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group me-2">
+						<div class="input-box">
+							<select class="niceSelect">
+								<option value="1">Bedrooms</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group me-2">
+						<div class="input-box">
+							<select class="niceSelect">
+								<option value="1">Bathrooms</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group text-center w-100">
+						<input type="submit" class="nir-btn w-100" id="submit3" value="Search">
+					</div>
+				</form>
+				<div class="listing-inner">
+					<div class="list-results d-flex align-items-center justify-content-between">
+						<div class="list-results-sort">
+							<p class="m-0">Showing 1-5 of 80 results</p>
+						</div>
+						<div class="click-menu d-flex align-items-center justify-content-between">
+							<div class="change-list f-active me-2">
+								<a href="listing-leftfilter.html">
+									<i class="fa fa-bars"></i>
+								</a>
+							</div>
+							<div class="change-grid me-2">
+								<a href="grid-leftfilter.html">
+									<i class="fa fa-th"></i>
+								</a>
+							</div>
+							<div class="sortby d-flex align-items-center justify-content-between ml-2">
+								<select class="niceSelect">
+									<option value="1">Sort By</option>
+									<option value="2">Average rating</option>
+									<option value="3">Price: low to high</option>
+									<option value="4">Price: high to low</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending1.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Villa</h5>
+
+									<h3 class="mb-2">
+										<a href="#" class="">7012 Shine Sehu Street, Liverpool London, LC345AC</a>
+									</h3>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$63,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Flat</h5>
+									<h4>
+										<a href="detail-rightside.html">7012 Shine Sehu Street, Liverpool, LC345AC</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$28,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Flat</h5>
+									<h4>
+										<a href="detail-rightside.html">7012 Shine Sehu Street, Liverpool, LC345AC</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$28,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending7.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Flat</h5>
+									<h4>
+										<a href="detail-rightside.html">425 Vine 012 Street, Montreal Canada, UHW45Q</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$31,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending5.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Villa</h5>
+									<h4>
+										<a href="detail-rightside.html">1244 Vansh Market, Mise Mizkel Australia, AU456HA</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$48,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending8.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Villa</h5>
+									<h4>
+										<a href="detail-rightside.html">1244 Vansh Market, Mise Mizkel Australia, AU456HA</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$48,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="blog-full mb-4 border-b pb-4">
+						<div class="row">
+							<div class="col-lg-5 col-md-4">
+								<div class="blog-image">
+									<a href="#" style="background-image: url(images/trending/trending6.jpg);"></a>
+								</div>
+							</div>
+							<div class="col-lg-7 col-md-8">
+								<div class="blog-content">
+									<h5 class="theme mb-2">Flat</h5>
+									<h4>
+										<a href="detail-rightside.html">425 Vine 012 Street, Montreal Canada, UHW45Q</a>
+									</h4>
+									<div class="d-flex align-items-center justify-content-between border-b pb-1 mb-2">
+										<div class="entry-price">
+											Start From<span class="d-block theme fw-bold">$32,000.00</span>
+										</div>
+										<div class="entry-metalist d-flex align-items-center">
+											<ul>
+												<li class="me-2">
+													<i class="fa fa-eye"></i>
+												</li>
+												<li class="me-2">
+													<i class="fa fa-heart"></i>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<p class="mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+									<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
+										<li class="me-2">
+											<i class="fa fa-eye"></i>
+											3 Beds</li>
+										<li class="me-2">
+											<i class="fa fa-heart"></i>
+											2 Baths</li>
+										<li>
+											<i class="fa fa-comments"></i>
+											600 Sq Ft</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="pagination-main text-center">
+						<ul class="pagination">
+							<li>
+								<a href="#">
+									<i class="fa fa-angle-double-left" aria-hidden="true"></i>
+								</a>
+							</li>
+							<li class="active">
+								<a href="#">1</a>
+							</li>
+							<li>
+								<a href="#">2</a>
+							</li>
+							<li>
+								<a href="#">3</a>
+							</li>
+							<li>
+								<a href="#">4</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="fa fa-angle-double-right" aria-hidden="true"></i>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- blog Ends -->
+
+
+	<!-- content-line start -->
+	<div class="content-line m-0">
+		<div class="content-line-inner bg-theme2 pb-6 pt-6 p-5">
+			<div class="container">
+				<div class="row d-md-flex align-items-center justify-content-between text-lg-start text-center">
+					<div class="col-lg-9">
+						<h2 class="mb-0 white">
+							Looking for a dream home?
+						</h2>
+						<p class="white">We can help you realize your dream of a new home</p>
+					</div>
+					<div class="col-lg-3">
+						<a href="" class="nir-btn-black float-lg-end float-none">Fine More Properties</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- content-line ends -->
+
+
+	<!-- Back to top start -->
+	<div id="back-to-top">
+		<a href="#"></a>
+	</div>
+	<!-- Back to top ends -->
+{% endblock %}

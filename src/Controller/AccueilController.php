@@ -29,7 +29,7 @@ class AccueilController extends AbstractController
         $entityManager = $em->getManager();
         $entityManager = $em->getRepository(Categories::class);
 
-        $categorie = new Categories();
+        $categorie = new Categorie();
 
         $categorie->setTypeCat("terrain agricole");
 

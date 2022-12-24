@@ -63,26 +63,10 @@
 								<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
 									<ul class="nav navbar-nav" id="responsive-menu">
 										<li class="dropdown submenu active">
-											<a href="index.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
-												<i class="icon-arrow-down" aria-hidden="true"></i>
+											<a href="{{ path('app_header') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
+
 											</a>
-											<ul class="dropdown-menu">
-												<li>
-													<a href="index.html">Homepage Default</a>
-												</li>
-												<li>
-													<a href="index-1.html">Homepage 1</a>
-												</li>
-												<li>
-													<a href="index-2.html">Homepage 2</a>
-												</li>
-												<li>
-													<a href="index-3.html">Homepage 3</a>
-												</li>
-												<li>
-													<a href="index-4.html">Homepage 4</a>
-												</li>
-											</ul>
+
 										</li>
 
 										<li>
@@ -92,23 +76,8 @@
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
 												<i class="icon-arrow-down" aria-hidden="true"></i>
 											</a>
-											<ul
-												class="dropdown-menu">
-												<!--	<li class="submenu dropdown">
-																																																																																																																																																																																																																																											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listing List<i class="fa fa-angle-right" aria-hidden="true"></i>
-																																																																																																																																																																																																																																											</a>
-																																																																																																																																																																																																																																											<ul class="dropdown-menu">
-																																																																																																																																																																																																																																												<li>
-																																																																																																																																																																																																																																													<a href="listing-leftfilter.html">Listing Left Filter</a>
-																																																																																																																																																																																																																																												</li>
-																																																																																																																																																																																																																																												<li>
-																																																																																																																																																																																																																																													<a href="listing-rightfilter.html">Listing Right Filter</a>
-																																																																																																																																																																																																																																												</li>
-																																																																																																																																																																																																																																												<li>
-																																																																																																																																																																																																																																													<a href="listing-fullwidth.html">Listing Fullwidth</a>
-																																																																																																																																																																																																																																												</li>
-																																																																																																																																																																																																																																											</ul>
-																																																																																																																																																																																																																																										</li> -->
+											<ul class="dropdown-menu">
+
 												<li class="submenu dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
 													</a>
@@ -121,7 +90,6 @@
 														</li>
 														<li>
 															<a href="{{path('app_categories_bois')}}">BOIS</a>
-															<!--Pas encore ajouter dans le controller-->
 														</li>
 														<li>
 															<a href="{{path('app_categorie_batiments')}}">BATIMENTS</a>
@@ -129,12 +97,8 @@
 														<li>
 															<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
 														</li>
-														<!--	<li>
-																																																																																																											<a href="grid-rightfilter.html">Grid Right Filter</a>
-																																																																																																										</li>
-																																																																																																										-->
 														<li>
-															<a href="{{path('app_categories')}}">Full categories</a>
+															<a href="{{path('app_categories')}}">TOUTE categories</a>
 														</li>
 													</ul>
 												</li>
@@ -142,74 +106,10 @@
 											</ul>
 										</li>
 										<li class="submenu dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages
-												<i class="icon-arrow-down" aria-hidden="true"></i>
+											<a href="{{ path('app_afficher_bien') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bien
+
 											</a>
-											<ul class="dropdown-menu">
-
-												<li class="submenu dropdown">
-													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Agency<i class="fa fa-angle-right" aria-hidden="true"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a href="agencies.html">Agency Grid</a>
-														</li>
-														<li>
-															<a href="agencies1.html">Agency List</a>
-														</li>
-
-													</ul>
-												</li>
-
-												<li class="submenu dropdown">
-													<a href="gallery.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gallery<i class="fa fa-angle-right" aria-hidden="true"></i>
-													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a href="gallery.html">Gallery</a>
-														</li>
-														<li>
-															<a href="gallery1.html">Gallery Masonry</a>
-														</li>
-													</ul>
-												</li>
-
-
-												<li>
-													<a href="{{path('app_faq')}}">Faq</a>
-												</li>
-
-												<!--<li class="submenu dropdown">
-																																																																																																																									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dashboard<i class="fa fa-angle-right" aria-hidden="true"></i>
-																																																																																																																									</a>
-																																																																																																																									<ul class="dropdown-menu">
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard.html">Dashboard</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-my-profile.html">User Profile</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-messages.html">User Messages</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-add-new.html">Add New</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-list.html">Listing</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-list.html">User Wishlist</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-history.html">History</a>
-																																																																																																																										</li>
-																																																																																																																										<li>
-																																																																																																																											<a href="dashboard-reviews.html">Reviews</a>
-																																																																																																																										</li>
-																																																																																																																									</ul>
-																																																																																																																								</li>-->
-											</ul>
+											<ul class="dropdown-menu"></ul>
 										</li>
 										<li>
 											<a href="{{path('app_contact')}}">Contact Us</a>
@@ -307,9 +207,9 @@
 										<img
 										src="images/logo-white.png" alt="">
 										<!--			<p class="mt-3 mb-3 white">
-																																																																	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
-																																																																</p>
-																																																																-->
+																																																																																																																																																																																																																							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
+																																																																																																																																																																																																																						</p>
+																																																																																																																																																																																																																						-->
 										<ul>
 											<li class="white">
 												<strong>PO Box:</strong>
@@ -327,107 +227,107 @@
 									</div>
 								</div>
 								<!--	<div class="col-lg-2 col-md-6 col-sm-12 mb-4">
-																																																					<div class="footer-links">
-																																																						<h3 class="white">Quick link</h3>
-																																																						<ul>
-																																																							<li><a href="about-us.html">About Us</a></li>
-																																																							<li><a href="about-us.html">Delivery Information</a></li>
-																																																							<li><a href="about-us.html">Privacy Policy</a></li>
-																																																							<li><a href="about-us.html">Terms &amp; Conditions</a></li>
-																																																							<li><a href="about-us.html">Customer Service</a></li>
-																																																							<li><a href="#about-us.html">Return Policy</a></li>
-																																																						</ul>
-																																																					</div>
-																																																				</div>
-																																																		-->
+																																																																																																																																																																													<div class="footer-links">
+																																																																																																																																																																														<h3 class="white">Quick link</h3>
+																																																																																																																																																																														<ul>
+																																																																																																																																																																															<li><a href="about-us.html">About Us</a></li>
+																																																																																																																																																																															<li><a href="about-us.html">Delivery Information</a></li>
+																																																																																																																																																																															<li><a href="about-us.html">Privacy Policy</a></li>
+																																																																																																																																																																															<li><a href="about-us.html">Terms &amp; Conditions</a></li>
+																																																																																																																																																																															<li><a href="about-us.html">Customer Service</a></li>
+																																																																																																																																																																															<li><a href="#about-us.html">Return Policy</a></li>
+																																																																																																																																																																														</ul>
+																																																																																																																																																																													</div>
+																																																																																																																																																																												</div>
+																																																																																																																																																																										-->
 							<!--	<div class="col-lg-2 col-md-6 col-sm-12 mb-4">
-																																																					<div class="footer-links">
-																																																						<h3 class="white">Popular Tags</h3>
-																																																						<div class="tagcloud">
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Beautiful</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Public</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Technology</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Travel</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Entertainment</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Blog</a>
-																																																							<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Sports
-																																																							</a>
-																																																						</div>
-																																																					</div>
-																																																				</div>
-																																																				-->
+																																																																																																																																																														<div class="footer-links">
+																																																																																																																																																															<h3 class="white">Popular Tags</h3>
+																																																																																																																																																															<div class="tagcloud">
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Beautiful</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Public</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Technology</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Travel</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Entertainment</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Blog</a>
+																																																																																																																																																																<a class="tag-cloud-link bg-white black p-2 mb-1" href="post-grid-1.html">Sports
+																																																																																																																																																																</a>
+																																																																																																																																																															</div>
+																																																																																																																																																														</div>
+																																																																																																																																																													</div>
+																																																																																																																																																													-->
 								<!--	<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-																																																									<div class="footer-links">
-																																																										<h3 class="white">Popular Posts</h3>
-																																																										<div class="trend-main">
-																																																											<div class="trend-item d-flex align-items-center mb-2">
-																																																												<div class="trend-image w-25 me-4">
-																																																													<img src="images/trending/trending4.jpg" alt="image">
-																																																												</div>
-																																																												<div class="trend-content-main w-75">
-																																																													<div class="trend-content">
-																																																														<h5 class="mb-1">
-																																																															<a href="detail-1.html">3 Easy Ways To Make Your iPhone Faster</a>
-																																																														</h5>
-																																																														<div class="entry-meta">
-																																																															<div class="entry-metalist d-flex align-items-center">
-																																																																<small>
-																																																																	<a href="post-grid-1.html" class="white">
-																																																																		<i class="fa fa-calendar"></i>
-																																																																		22 Mar 2021</a>
-																																																																</small>
-																																																															</div>
-																																																														</div>
-																																																													</div>
-																																																												</div>
-																																																											</div>
-																																																				
-																																																											<div class="trend-item d-flex align-items-center mb-2">
-																																																												<div class="trend-image w-25 me-4">
-																																																													<img src="images/trending/trending5.jpg" alt="image">
-																																																												</div>
-																																																												<div class="trend-content-main w-75">
-																																																													<div class="trend-content">
-																																																														<h5 class="mb-1">
-																																																															<a href="detail-1.html">Facts About Business That Will Help You Success</a>
-																																																														</h5>
-																																																														<div class="entry-meta">
-																																																															<div class="entry-metalist d-flex align-items-center">
-																																																																<small>
-																																																																	<a href="post-grid-1.html" class="white">
-																																																																		<i class="fa fa-calendar"></i>
-																																																																		22 Mar 2021</a>
-																																																																</small>
-																																																															</div>
-																																																														</div>
-																																																													</div>
-																																																												</div>
-																																																											</div>
-																																																				
-																																																											<div class="trend-item d-flex align-items-center mb-2">
-																																																												<div class="trend-image w-25 me-4">
-																																																													<img src="images/trending/trending6.jpg" alt="image">
-																																																												</div>
-																																																												<div class="trend-content-main w-75">
-																																																													<div class="trend-content">
-																																																														<h5 class="mb-1">
-																																																															<a href="detail-1.html">Your Light Is About To Stop Being Relevant</a>
-																																																														</h5>
-																																																														<div class="entry-meta">
-																																																															<div class="entry-metalist d-flex align-items-center">
-																																																																<small>
-																																																																	<a href="post-grid-1.html" class="white">
-																																																																		<i class="fa fa-calendar"></i>
-																																																																		22 Mar 2021</a>
-																																																																</small>
-																																																															</div>
-																																																														</div>
-																																																													</div>
-																																																												</div>
-																																																											</div>
-																																																										</div>
-																																																									</div>
-																																																									-->
+																																																																																																																																																																																	<div class="footer-links">
+																																																																																																																																																																																		<h3 class="white">Popular Posts</h3>
+																																																																																																																																																																																		<div class="trend-main">
+																																																																																																																																																																																			<div class="trend-item d-flex align-items-center mb-2">
+																																																																																																																																																																																				<div class="trend-image w-25 me-4">
+																																																																																																																																																																																					<img src="images/trending/trending4.jpg" alt="image">
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																				<div class="trend-content-main w-75">
+																																																																																																																																																																																					<div class="trend-content">
+																																																																																																																																																																																						<h5 class="mb-1">
+																																																																																																																																																																																							<a href="detail-1.html">3 Easy Ways To Make Your iPhone Faster</a>
+																																																																																																																																																																																						</h5>
+																																																																																																																																																																																						<div class="entry-meta">
+																																																																																																																																																																																							<div class="entry-metalist d-flex align-items-center">
+																																																																																																																																																																																								<small>
+																																																																																																																																																																																									<a href="post-grid-1.html" class="white">
+																																																																																																																																																																																										<i class="fa fa-calendar"></i>
+																																																																																																																																																																																										22 Mar 2021</a>
+																																																																																																																																																																																								</small>
+																																																																																																																																																																																							</div>
+																																																																																																																																																																																						</div>
+																																																																																																																																																																																					</div>
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																			</div>
+																																																																																																																																																																												
+																																																																																																																																																																																			<div class="trend-item d-flex align-items-center mb-2">
+																																																																																																																																																																																				<div class="trend-image w-25 me-4">
+																																																																																																																																																																																					<img src="images/trending/trending5.jpg" alt="image">
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																				<div class="trend-content-main w-75">
+																																																																																																																																																																																					<div class="trend-content">
+																																																																																																																																																																																						<h5 class="mb-1">
+																																																																																																																																																																																							<a href="detail-1.html">Facts About Business That Will Help You Success</a>
+																																																																																																																																																																																						</h5>
+																																																																																																																																																																																						<div class="entry-meta">
+																																																																																																																																																																																							<div class="entry-metalist d-flex align-items-center">
+																																																																																																																																																																																								<small>
+																																																																																																																																																																																									<a href="post-grid-1.html" class="white">
+																																																																																																																																																																																										<i class="fa fa-calendar"></i>
+																																																																																																																																																																																										22 Mar 2021</a>
+																																																																																																																																																																																								</small>
+																																																																																																																																																																																							</div>
+																																																																																																																																																																																						</div>
+																																																																																																																																																																																					</div>
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																			</div>
+																																																																																																																																																																												
+																																																																																																																																																																																			<div class="trend-item d-flex align-items-center mb-2">
+																																																																																																																																																																																				<div class="trend-image w-25 me-4">
+																																																																																																																																																																																					<img src="images/trending/trending6.jpg" alt="image">
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																				<div class="trend-content-main w-75">
+																																																																																																																																																																																					<div class="trend-content">
+																																																																																																																																																																																						<h5 class="mb-1">
+																																																																																																																																																																																							<a href="detail-1.html">Your Light Is About To Stop Being Relevant</a>
+																																																																																																																																																																																						</h5>
+																																																																																																																																																																																						<div class="entry-meta">
+																																																																																																																																																																																							<div class="entry-metalist d-flex align-items-center">
+																																																																																																																																																																																								<small>
+																																																																																																																																																																																									<a href="post-grid-1.html" class="white">
+																																																																																																																																																																																										<i class="fa fa-calendar"></i>
+																																																																																																																																																																																										22 Mar 2021</a>
+																																																																																																																																																																																								</small>
+																																																																																																																																																																																							</div>
+																																																																																																																																																																																						</div>
+																																																																																																																																																																																					</div>
+																																																																																																																																																																																				</div>
+																																																																																																																																																																																			</div>
+																																																																																																																																																																																		</div>
+																																																																																																																																																																																	</div>
+																																																																																																																																																																																	-->
 							</div>
 						</div>
 					</div>

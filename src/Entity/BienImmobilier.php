@@ -37,6 +37,21 @@ class BienImmobilier
      */
     private $codePostal;
 
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $localisation;
+
+    /**
+     * @ORM\Column(type="string", length=10)
+     */
+    private $surface;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +101,42 @@ class BienImmobilier
     public function setCodePostal(int $codePostal): self
     {
         $this->codePostal = $codePostal;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getLocalisation(): ?string
+    {
+        return $this->localisation;
+    }
+
+    public function setLocalisation(string $localisation): self
+    {
+        $this->localisation = $localisation;
+
+        return $this;
+    }
+
+    public function getSurface(): ?string
+    {
+        return $this->surface;
+    }
+
+    public function setSurface(string $surface): self
+    {
+        $this->surface = $surface;
 
         return $this;
     }
