@@ -52,6 +52,16 @@ class BienImmobilier
      */
     private $surface;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +147,30 @@ class BienImmobilier
     public function setSurface(string $surface): self
     {
         $this->surface = $surface;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(string $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }
