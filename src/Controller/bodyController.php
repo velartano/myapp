@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Safer;
+use App\Repository\SaferRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,18 +12,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class bodyController extends AbstractController
 {
     /**
-     * @Route("/", name="app_afficher_bien")
+     * @Route("/")
      */
-    public function index(ManagerRegistry $manager): Response
+    public function index(SaferRepository $saferRepository): Response
     {
-        $repo = $this->$manager()->getRepository(Safer::class);
-
-        $bien = $repo->findAll();
-
-        return $this->render('afficher_bien/index.html.twig', [
+        return $this->render('base.html.twig', [
             'controller_name' => 'AfficherBienController',
-            'bienD' => $bien
-            //
+            'biens' => $saferRepository->findAll(),
         ]);
     }
 }

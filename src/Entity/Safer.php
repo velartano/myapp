@@ -10,14 +10,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Safer
 {
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+
 
     /**
+     * @ORM\GeneratedValue
+     * @ORM\Id
      * @ORM\Column(type="string", length=15)
      */
     private $reference;
@@ -57,10 +54,6 @@ class Safer
      */
     private $categorie;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getReference(): ?string
     {
