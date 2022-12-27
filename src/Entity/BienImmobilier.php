@@ -45,7 +45,7 @@ class BienImmobilier
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private $localisation;
+    private $ville;
 
     /**
      * @ORM\Column(type="string", length=10)
@@ -117,14 +117,14 @@ class BienImmobilier
         return $this;
     }
 
-    public function getLocalisation(): ?string
+    public function getville(): ?string
     {
-        return $this->localisation;
+        return $this->ville;
     }
 
-    public function setLocalisation(string $localisation): self
+    public function setville(string $ville): self
     {
-        $this->localisation = $localisation;
+        $this->ville = $ville;
 
         return $this;
     }
