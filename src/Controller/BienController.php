@@ -90,6 +90,15 @@ class BienController extends AbstractController{
         return new Response('Bien sypprimé');
     }
 
+    public function new()
+    {
+        return $this ->render('bien.html.twig') ;
+    }
+
+    // public function testBase()
+    // {
+    //     return $this ->render('base.html.twig') ;
+    // }
     
 }
 
