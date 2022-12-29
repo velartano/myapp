@@ -27,10 +27,6 @@ class BienImmobilier
      */
     private $prix;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $url;
 
     /**
      * @ORM\Column(type="integer")
@@ -58,9 +54,12 @@ class BienImmobilier
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="bienImmobiliers")
      */
     private $categorie;
+
+
+
 
     public function getId(): ?int
     {
@@ -87,18 +86,6 @@ class BienImmobilier
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
-
-        return $this;
-    }
-
-    public function getUrl(): ?string
-    {
-        return $this->url;
-    }
-
-    public function setUrl(string $url): self
-    {
-        $this->url = $url;
 
         return $this;
     }
