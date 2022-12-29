@@ -1,147 +1,136 @@
-	<!-- Preloader -->
-			<div id="preloader">
-				<div id="status"></div>
-			</div>
-			<!-- Preloader Ends -->
+<!-- Preloader -->
+<div id="preloader">
+	<div id="status"></div>
+</div>
+<!-- Preloader Ends -->
 
-			<!-- header starts -->
-			<header
-				class="main_header_area headerstye-1">
-				<!-- Navigation Bar -->
-				<div class="header_menu" id="header_menu">
-					<nav class="navbar navbar-default">
-						<div class="container">
-							<div
-								class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-3 pt-3">
-								<!-- Brand and toggle get grouped for better mobile display -->
-								<div class="navbar-header">
-									<a class="navbar-brand" href="index.html">
-										<img src="{{asset("assets/images/images/logo-white.png")}}" alt="image">
-										<img src="{{asset("assets/images/logo.png")}}" alt="image">
-									</a>
-								</div>
-								<!-- Collect the nav links, forms, and other content for toggling -->
-								<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
-									<ul class="nav navbar-nav" id="responsive-menu">
-										<li class="dropdown submenu active">
-											<a href="{{ path('app_header') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
+<!-- header starts -->
+<header
+	class="main_header_area headerstye-1">
+	<!-- Navigation Bar -->
+	<div class="header_menu" id="header_menu">
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div
+					class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-3 pt-3">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<a class="navbar-brand" href="index.html">
+							<img src="{{asset("assets/images/images/logo-white.png")}}" alt="image">
+							<img src="{{asset("assets/images/logo.png")}}" alt="image">
+						</a>
+					</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav" id="responsive-menu">
+							<li class="dropdown submenu active">
+								<a href="{{ path('app_header') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
 
-											</a>
+								</a>
 
-										</li>
+							</li>
 
-										<li>
-											<a href="about.html">A PROPOS DE NOUS</a>
-										</li>
-										<li class="submenu dropdown">
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
-												<i class="icon-arrow-down" aria-hidden="true"></i>
-											</a>
-											<ul class="dropdown-menu">
+							<li>
+								<a href="about.html">A PROPOS DE NOUS</a>
+							</li>
+							<li class="submenu dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+									<i class="icon-arrow-down" aria-hidden="true"></i>
+								</a>
+								<ul class="dropdown-menu">
 
-												<li class="submenu dropdown">
-													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
+									<li class="submenu dropdown">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
+										</a>
+										<ul class="dropdown-menu">
+											{% for cat in categories %}
+												<li>
+													<a href="{{ path('app_categories', {'id' : cat.id}) }}">{{cat.getTypeCat()}}
 													</a>
-													<ul class="dropdown-menu">
-														<li>
-															<a href="{{path('app_categories_terrain')}}">TERRRAIN AGRICOLE</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_prairie')}}">PRAIRIE</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_bois')}}">BOIS</a>
-														</li>
-														<li>
-															<a href="{{path('app_categorie_batiments')}}">BATIMENTS</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories')}}">TOUTE categories</a>
-														</li>
-													</ul>
 												</li>
 
-											</ul>
-										</li>
-										<li class="submenu dropdown">
-											<a href="{{ path('app_afficher_bien') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bien
-
-											</a>
-											<ul class="dropdown-menu"></ul>
-										</li>
-										<li>
-											<a href="{{path('app_contact')}}">Contact Us</a>
-										</li>
-									</div>
-
-									<!-- /.navbar-collapse -->
-									<div class="register-login d-flex align-items-center">
-										<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 white">
-											<i class="fa fa-user"></i>
-											Login/Register
-										</a>
-										<div class="header_sidemenu me-3">
-											<div class="mhead">
-												<span class="menu-ham">
-													<a href="#" class="cart-icon d-flex align-items-center ms-1">
-														<i class="fa fa-th-large fs-5 black bg-grey p-2"></i>
-													</a>
-												</span>
-											</div>
-										</div>
-										<a href="#" class="nir-btn white">Add Listing</a>
-									</div>
-
-									<div id="slicknav-mobile"></div>
-								</div>
-							</div>
-							<!-- /.container-fluid -->
-						</nav>
-					</div>
-					<!-- Navigation Bar Ends -->
-				</header>
-				<!-- header ends -->
-
-				<!-- header side menu -->
-				<div class="header_sidemenu">
-					<div class="header_sidemenu_in">
-						<div class="menu py-5 px-4">
-							<div class="close-menu">
-								<i class="fa fa-times"></i>
-							</div>
-							<div class="m-contentmain">
-								<div class="m-contentmain">
-									<div class="m-logo mb-5">
-										<img src="images/logo.png" alt="m-logo">
-									</div>
-
-									<div class="content-box mb-5">
-										<h3 class="">Get In Touch</h3>
-										<p class="mb-2">We must explain to you how all seds this mistakens idea off denouncing pleasures and praising pain was born and I will give you a completed accounts..</p>
-										<a href="#" class="nir-btn">Consultation</a>
-									</div>
-
-									<div class="contact-info1">
-										<h3 class="">Contact Info</h3>
-										<ul>
-											<li class="d-block mb-1">
-												<i class="fa fa-map-marker-alt me-2"></i>
-												Brozon Mall 26, Newyrok NY 10005</li>
-											<li class="d-block mb-1">
-												<i class="fa fa-phone-alt me-2"></i>555 626-0234</li>
-											<li class="d-block mb-1">
-												<i class="fa fa-envelope-open me-2"></i>support@realshield.com</li>
-											<li class="d-block">
-												<i class="fa fa-clock me-2"></i>
-												Open Time: 09.00 to 18.00</li>
+											{% endfor %}
+											<li>
+												<a href="{{ path('app_categories', {'id' : 0}) }}">
+													Toutes categories
+												</a>
+											</li>
 										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="overlay hide"></div>
-					</div>
+									</li>
+								</li>
+							</li>
+						</ul>
+					</li>
+					<li class="submenu dropdown">
+						<a href="{{ path('app_afficher_bien') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bien
+
+						</a>
+						<ul class="dropdown-menu"></ul>
+					</li>
+					<li>
+						<a href="{{path('app_contact')}}">Contact Us</a>
+					</li>
 				</div>
+
+				<!-- /.navbar-collapse -->
+				<div class="register-login d-flex align-items-center">
+					<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-2 white">
+						<i class="fa fa-user"></i>
+						Login/Register
+					</a>
+					<div class="header_sidemenu me-3">
+						<div class="mhead">
+							<span class="menu-ham">
+								<a href="#" class="cart-icon d-flex align-items-center ms-1">
+									<i class="fa fa-th-large fs-5 black bg-grey p-2"></i>
+								</a>
+							</span>
+						</div>
+					</div>
+					<a href="#" class="nir-btn white">Add Listing</a>
+				</div>
+
+				<div id="slicknav-mobile"></div>
+			</div>
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+</div>
+<!-- Navigation Bar Ends --></header><!-- header ends --><!-- header side menu --><div class="header_sidemenu">
+<div class="header_sidemenu_in">
+	<div class="menu py-5 px-4">
+		<div class="close-menu">
+			<i class="fa fa-times"></i>
+		</div>
+		<div class="m-contentmain">
+			<div class="m-contentmain">
+				<div class="m-logo mb-5">
+					<img src="images/logo.png" alt="m-logo">
+				</div>
+
+				<div class="content-box mb-5">
+					<h3 class="">Get In Touch</h3>
+					<p class="mb-2">We must explain to you how all seds this mistakens idea off denouncing pleasures and praising pain was born and I will give you a completed accounts..</p>
+					<a href="#" class="nir-btn">Consultation</a>
+				</div>
+
+				<div class="contact-info1">
+					<h3 class="">Contact Info</h3>
+					<ul>
+						<li class="d-block mb-1">
+							<i class="fa fa-map-marker-alt me-2"></i>
+							Brozon Mall 26, Newyrok NY 10005</li>
+						<li class="d-block mb-1">
+							<i class="fa fa-phone-alt me-2"></i>555 626-0234</li>
+						<li class="d-block mb-1">
+							<i class="fa fa-envelope-open me-2"></i>support@realshield.com</li>
+						<li class="d-block">
+							<i class="fa fa-clock me-2"></i>
+							Open Time: 09.00 to 18.00</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="overlay hide"></div>
+</div></div>

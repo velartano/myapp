@@ -22,7 +22,7 @@ class AccueilController extends AbstractController
     /**
      * @Route("/accueil", name="app_accueil")
      */
-    public function index(ManagerRegistry $em): Response
+    public function index(ManagerRegistry $em, CategorieRepository $categorieRepository): Response
     {
         #$br = $em->getManager();
 
@@ -46,6 +46,7 @@ class AccueilController extends AbstractController
 
         return $this->render('accueil/index.html.twig', [
             'controller_name' => 'AccueilController',
+            'categories' => $categorieRepository->findAll(),
         ]);
     }
 }

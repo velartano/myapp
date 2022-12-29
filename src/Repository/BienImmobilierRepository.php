@@ -50,6 +50,14 @@ class BienImmobilierRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
+        public function findByCat(int $id): array
+    {
+        return $this->createQueryBuilder('bienByCat')
+            ->select('bienByCat')
+            ->where ('bienByCat.categorie = ' . $id)
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return BienImmobilier[] Returns an array of BienImmobilier objects
     //     */

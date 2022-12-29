@@ -26,11 +26,12 @@ final class Version20221223203735 extends AbstractMigration
         id INT AUTO_INCREMENT NOT NULL, 
         titre VARCHAR(255) NOT NULL, 
         prix INT NOT NULL, 
-        url VARCHAR(255) , 
+        image VARCHAR(255) , 
         code_postal INT NOT NULL,
         description VARCHAR(255), 
         ville VARCHAR(255), 
         surface VARCHAR(255), 
+        categorie_id INt, 
         PRIMARY KEY(id)) 
         DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
 

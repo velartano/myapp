@@ -42,7 +42,8 @@
 
 
 		{% block body %}
-			{{ include ('bodyHome.html.twig') }}
+			{{ include ('bodyHome.html.twig', {'biens' : biens}
+			) }}
 		{% endblock %}
 
 
