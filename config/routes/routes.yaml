@@ -13,10 +13,11 @@ bien_remove:
     # the controller value has the format 'controller_class::method_name'
     controller: App\Controller\BienController::removeBien
 
+
 bien_form:
     path: /biens/form
     # the controller value has the format 'controller_class::method_name'
-    controller: App\Controller\BienController::new
+    controller: App\Controller\BienController::create
 
 
 # bien_base:
