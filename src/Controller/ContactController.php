@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use app\Controller\contactType;
+use App\Form\ContactFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -21,33 +23,20 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="app_contact")
      */
-    public function index(Request $request, ManagerRegistry $manager): Response
+    public function index(Request $request): Response
     {
+        $contact = new Contact();
 
-        $entityManager = $manager->getManager();
+        $form = $this->createForm(ContactFormType::class, $contact);
+        $form->handleRequest($request);
 
-        $Contact = new Contact();  //creation d'un objet
-
-        $form = $this->createFormBuilder($Contact) //  creation d'un formulaire 
-            ->add('nom')
-            ->add('prenom')
-            ->add('mail', EmailType::class)
-            ->add('numero', NumberType::class)
-            ->add('content', TextareaType::class)
-            // ->add('save', SubmitType::class, ['label' => 'Enregistrer'])
-            ->getForm();
-
-        $form->handleRequest($request); //essaie d'annalyser la requete htpp que je passe en parametre, c'est a dire est-ce que les données entrées sont conforme avec celles de la base de données
-
-        //dump($Contact);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $entityManager->persist($Contact, true);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('app_contact');
+            $this->contactRepository->save($contact, true);
+            $this->addFlash(
+                'success',
+                'Votre message est bien envoyé'
+            );
         }
-        // dump($Contact);
 
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',
