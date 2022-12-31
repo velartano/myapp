@@ -59,6 +59,11 @@ class Categorie
         return $this->bienImmobiliers;
     }
 
+    public function __toString()
+    {
+        return $this->type_cat;
+    }
+
     public function addBienImmobilier(BienImmobilier $bienImmobilier): self
     {
         if (!$this->bienImmobiliers->contains($bienImmobilier)) {
