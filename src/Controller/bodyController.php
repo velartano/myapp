@@ -3,21 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\Safer;
-use App\Repository\SaferRepository;
+use App\Repository\BienImmmobilierRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\BienImmobilierRepository;
 
 class bodyController extends AbstractController
 {
     /**
-     * @Route("/")
+     * @Route("/body/home")
      */
-    public function index(SaferRepository $saferRepository): Response
+    public function index(BienImmobilierRepository $saferRepository): Response
     {
-        return $this->render('base.html.twig', [
-            'controller_name' => 'AfficherBienController',
+        return $this->render('bodyHome.html.twig', [
             'biens' => $saferRepository->findAll(),
         ]);
     }
