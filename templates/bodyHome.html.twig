@@ -67,124 +67,6 @@
 	</section>
 	<!-- banner ends -->
 
-	<!-- form main starts -->
-	<div class="form-main">
-		<div class="container">
-			<div class="form-content">
-				<div class="form-navtab text-center">
-					<ul class="nav nav-tabs" id="myTab" role="tablist">
-						<li class="nav-item" role="presentation">
-							<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Buy</button>
-						</li>
-						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Rent</button>
-						</li>
-					</ul>
-				</div>
-
-				<div class="tab-content" id="myTabContent">
-					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-						<div class="row d-flex align-items-center justify-content-between">
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Search Property</label>
-									<div class="input-box">
-										<i class="fa fa-search"></i>
-										<input type="text" placeholder="Search Property">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Location</label>
-									<div class="input-box">
-										<i class="fa fa-map-marker-alt"></i>
-										<select class="niceSelect">
-											<option value="1">Input Location</option>
-											<option value="2">Argentina</option>
-											<option value="3">Belgium</option>
-											<option value="4">Canada</option>
-											<option value="5">Denmark</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Property Type</label>
-									<div class="input-box">
-										<i class="fa fa-building"></i>
-										<select class="niceSelect">
-											<option value="1">Luxury</option>
-											<option value="2">Deluxe</option>
-											<option value="3">Premium</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0 mt-4">
-									<a href="#" class="nir-btn w-100">
-										<i class="fa fa-search mr-2"></i>
-										Search Now</a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-						<div class="row d-flex align-items-center justify-content-between">
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Search Property</label>
-									<div class="input-box">
-										<i class="flaticon-search"></i>
-										<input type="text" placeholder="Search Property">
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Location</label>
-									<div class="input-box">
-										<i class="flaticon-placeholder"></i>
-										<select class="niceSelect">
-											<option value="1">Input Location</option>
-											<option value="2">Argentina</option>
-											<option value="3">Belgium</option>
-											<option value="4">Canada</option>
-											<option value="5">Denmark</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0">
-									<label>Property Type</label>
-									<div class="input-box">
-										<i class="flaticon-add-user"></i>
-										<select class="niceSelect">
-											<option value="1">Luxury</option>
-											<option value="2">Deluxe</option>
-											<option value="3">Premium</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg">
-								<div class="form-group mb-0 mt-4">
-									<a href="#" class="nir-btn w-100">
-										<i class="fa fa-search mr-2"></i>
-										Search Now</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- form main ends -->
 
 	<!-- Trending Starts -->
 	<section class="trending">
@@ -202,27 +84,25 @@
 							<div class="trend-item box-shadow rounded">
 
 								<div class="trend-image">
-									<img src="{{asset("assets/images/trending/trending2.jpg")}}" alt="image">
-									<a href="#" class="flash bg-theme1 white px-3 py-2">
-										<i class="fa fa-flash"></i>
-									</a>
+									<img src="{{ vich_uploader_asset(bien ,'imageFile')}}" alt="image">
+
 									<div class="trend-meta d-flex align-items-center justify-content-between">
 										<div class="entry-author">
-											<img src="{{asset("/assets/images/reviewer/2.jpg")}}" alt="" class="rounded-circle me-1">
+											<img src="{{ vich_uploader_asset(bien, 'imageFile') }}" alt="" class="rounded-circle me-1">
 											<span>{{bien.titre}}</span>
 										</div>
-										<a href="grid-leftfilter.html" class="tags bg-theme2 white px-3 py-1">For Rent</a>
+										<a href="grid-leftfilter.html" class="tags bg-theme2 white px-3 py-1">{{bien.status}}</a>
 									</div>
 								</div>
 
 								<div class="trend-content p-4">
-									<h5 class="theme">{#{{bien.categorie}}#}</h5>
+									<h5 class="theme">{{bien.categorie}}</h5>
 									<h4>
-										<a href="grid-leftfilter.html">{{bien.description}}</a>
+										<p>{{bien.description}}</p>
 									</h4>
 									<div class="entry-meta d-flex align-items-center justify-content-between border-b pb-1 mb-2">
 										<div class="entry-author">
-											<p>Start From<span class="d-block theme fw-bold">{{bien.prix}}</span>
+											<p>Prix<span class="d-block theme fw-bold">{{bien.prix}}</span>
 											</p>
 										</div>
 										<div class="entry-metalist d-flex align-items-center">
@@ -236,22 +116,11 @@
 											</ul>
 										</div>
 									</div>
-									<p class="mb-0">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+
 
 								</div>
-								<!--
-																																																																																																																																																																		<ul class="d-flex align-items-center justify-content-between bg-grey p-3 px-4">
-																																																																																																																																																																			<li class="me-2">
-																																																																																																																																																																				<i class="fa fa-eye"></i>
-																																																																																																																																																																				3 Beds</li>
-																																																																																																																																																																			<li class="me-2">
-																																																																																																																																																																				<i class="fa fa-heart"></i>
-																																																																																																																																																																				2 Baths</li>
-																																																																																																																																																																			<li>
-																																																																																																																																																																				<i class="fa fa-comments"></i>
-																																																																																																																																																																				600 Sq Ft</li>
-																																																																																																																																																																		</ul>
-																																																																																																																																																																		-->
+
+
 							</div>
 						</div>
 					{% endfor %}

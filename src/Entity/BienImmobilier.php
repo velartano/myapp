@@ -59,7 +59,7 @@ class BienImmobilier
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping=" products_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -172,7 +172,7 @@ class BienImmobilier
 
     public function setImage(string $image): self
     {
-        $this->image = $image;
+        $this->imageFile = $image;
 
         return $this;
     }
