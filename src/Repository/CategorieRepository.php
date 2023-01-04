@@ -50,7 +50,6 @@ class CategorieRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
-
     //    /**
     //     * @return Categorie[] Returns an array of Categorie objects
     //     */

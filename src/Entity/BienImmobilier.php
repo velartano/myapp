@@ -3,15 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\BienImmobilierRepository;
-use DateTime;
-use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=BienImmobilierRepository::class)
- * @Vich\Uploadable
  */
 class BienImmobilier
 {
@@ -46,7 +41,7 @@ class BienImmobilier
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private $localisation;
+    private $ville;
 
     /**
      * @ORM\Column(type="string", length=10)
@@ -59,28 +54,11 @@ class BienImmobilier
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
-     * @var File
-     */
-    private $imageFile;
-
-    /**
-     * @ORM\Column(type="datetime")
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-    /**
-     * 
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="bienImmobiliers")
-     * 
      */
     private $categorie;
 
-    /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $status;
+
 
 
     public function getId(): ?int
@@ -99,11 +77,6 @@ class BienImmobilier
 
         return $this;
     }
-    public function getupdatedAt(): ?\DateTimeInterface
-    {
-        return $this->updatedAt;
-    }
-
 
     public function getPrix(): ?int
     {
@@ -141,14 +114,14 @@ class BienImmobilier
         return $this;
     }
 
-    public function getLocalisation(): ?string
+    public function getville(): ?string
     {
-        return $this->localisation;
+        return $this->ville;
     }
 
-    public function setLocalisation(string $localisation): self
+    public function setville(string $ville): self
     {
-        $this->localisation = $localisation;
+        $this->ville = $ville;
 
         return $this;
     }
@@ -172,48 +145,19 @@ class BienImmobilier
 
     public function setImage(string $image): self
     {
-        $this->imageFile = $image;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function setImageFile(File $image = null)
-    {
-        $this->imageFile = $image;
-
-
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-
-    public function getCategorie()
+    public function getCategorie(): ?string
     {
         return $this->categorie;
     }
 
-    public function setCategorie(Categorie $categorie): self
+    public function setCategorie(string $categorie): self
     {
         $this->categorie = $categorie;
-
-        return $this;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
 
         return $this;
     }

@@ -15,7 +15,10 @@
 		href="{{ asset("assets/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css">
 		<!--Custom CSS-->
 		<link
-		href="{{asset("assets/css/style.css")}}" rel="stylesheet" type="text/css">
+		href="{{asset('assets/css/style.css')}}" rel="stylesheet" type="text/css">
+		<!--Custom CSS-->
+		<link
+		href="{{asset('assets/css/custom-style.css')}}" rel="stylesheet" type="text/css">
 		<!--Plugin CSS-->
 		<link
 		href="{{asset("assets/css/plugin.css")}}" rel="stylesheet" type="text/css">
@@ -39,14 +42,28 @@
 		{% block header %}
 			{{ include ('newHeader.html.twig') }}
 		{% endblock %}
-
+		{%form_theme formBien 'bootstrap_5_layout.html.twig'%}
 
 		{% block body %}
-			{{ include ('bodyHome.html.twig', {'biens' : biens}
-			) }}
+			<!-- banner starts -->
+			{{ form_start(formBien, {'attr' : {'id' :"form_ajout"} })}}
+
+			<h2>Ajout de bien</h2>
+
+			{{form_row(formBien.titre , {'attr' : {'placeholder' :"Titre"} })}}
+			{{form_row(formBien.prix , {'attr' : {'placeholder' :"Prix"} })}}
+			{{form_row(formBien.description , {'attr' : {'placeholder' :"Description"} })}}
+			{{form_row(formBien.ville , {'attr' : {'placeholder' :"Ville"} })}}
+			{{form_row(formBien.code_postal , {'attr' : {'placeholder' :"Code postal"} })}}
+			{{form_row(formBien.surface , {'attr' : {'placeholder' :"Surface"} })}}
+
+
+			<button class="createaccount-btn">Ajouter</button>
+
+
+			{{form_end(formBien)}}
+
 		{% endblock %}
-
-
 		{% block footer %}
 			{{ include ('newFooter.html.twig') }}
 		{% endblock %}
@@ -57,4 +74,4 @@
 	<script src="{{asset("assets/js/main.js")}}"></script>
 	<script src="{{asset("assets/js/custom-swiper.js")}}"></script>
 	<script src="{{asset("assets/js/custom-nav.js")}}"></script>
-</html></body></html></body></html>
+</html></body></html></body></html></body></html>

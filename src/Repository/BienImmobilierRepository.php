@@ -50,6 +50,28 @@ class BienImmobilierRepository extends ServiceEntityRepository
         return $queryBuilder->getQuery()->getOneOrNullResult();
     }
 
+        public function findByCat(int $id): array
+    {
+        return $this->createQueryBuilder('bienByCat')
+            ->select('bienByCat')
+            ->where ('bienByCat.categorie = ' . $id)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function search(array $criteres): array
+    {
+        // dd($criteres);
+        return $this->createQueryBuilder('bien')
+            ->select('bien')
+            ->where(($criteres['cat_id'] != 0) ? "bien.categorie = " . $criteres['cat_id'] : null)
+            ->andWhere("bien.titre like '%" . $criteres['titre'] . "%'")
+            ->andWhere(($criteres['prix'] != null) ? 'bien.prix <= ' . $criteres['prix'] : null)
+            ->andWhere(($criteres['surface'] != null) ? 'bien.surface <= ' . $criteres['surface'] : null)
+            ->andWhere("bien.ville like '%" . $criteres['ville'] . "%'")
+            ->getQuery()
+            ->getResult();
+    }
     //    /**
     //     * @return BienImmobilier[] Returns an array of BienImmobilier objects
     //     */

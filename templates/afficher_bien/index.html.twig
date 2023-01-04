@@ -8,19 +8,19 @@
 	<section class="breadcrumb-main pb-0 pt-20" style="background-image: url(images/bg/bg2.jpg);">
 		<div
 			class="breadcrumb-outer"><!--	<div class="container">
-												<div class="breadcrumb-content d-md-flex align-items-center pt-6">
-													<h1 class="mb-0">Listing With Fullwidth</h1>
-													<nav aria-label="breadcrumb">
-														<ul class="breadcrumb">
-															<li class="breadcrumb-item">
-																<a href="#">Home</a>
-															</li>
-															<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
-														</ul>
-													</nav>
-												</div>
-											</div>
-											-->
+																								<div class="breadcrumb-content d-md-flex align-items-center pt-6">
+																									<h1 class="mb-0">Listing With Fullwidth</h1>
+																									<nav aria-label="breadcrumb">
+																										<ul class="breadcrumb">
+																											<li class="breadcrumb-item">
+																												<a href="#">Home</a>
+																											</li>
+																											<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
+																										</ul>
+																									</nav>
+																								</div>
+																							</div>
+																							-->
 		</div>
 		<div class="dot-overlay"></div>
 	</section>
@@ -30,61 +30,47 @@
 	<section class="blog">
 		<div class="container">
 			<div class="listing-main listing-main1 ps-5 pe-5">
-				<form class="form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4">
-					<div class="form-group me-2">
-						<div class="input-box">
-							<select class="niceSelect">
-								<option value="1">Locations</option>
-								<option value="2">Boston</option>
-								<option value="3">03</option>
-								<option value="4">Chicago</option>
-								<option value="5">Denver</option>
-							</select>
-						</div>
+				{{ form_start(form, {'attr' : {'class' : 'form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4'}}) }}
+				<div class="form-group me-2">
+					<div class="input-box">
+						{{form_widget(form.categorie)}}
+
+						{# <select class="niceSelect">
+																			<option value="0">Toutes catégories</option>
+																			{% for cat in categories %}
+																				<option value="{{cat.id}}" {% if selectedBienId == cat.id %} selected {% endif %}>
+																					{{cat.getTypeCat()}}
+																				</option>
+																			{% endfor %}
+																		</select> #}
+
 					</div>
-					<div class="form-group me-2">
-						<div class="input-box">
-							<select class="niceSelect">
-								<option value="1">All Types</option>
-								<option value="2">Apartment</option>
-								<option value="3">Villa</option>
-								<option value="4">Flat</option>
-								<option value="5">Rooms</option>
-								<option value="5">House</option>
-							</select>
-						</div>
+				</div>
+				<div class="form-group me-2">
+					<div class="input-box">
+						{{form_widget(form.titre)}}
 					</div>
-					<div class="form-group me-2">
-						<div class="input-box">
-							<select class="niceSelect">
-								<option value="1">All Status</option>
-								<option value="2">For Rent</option>
-								<option value="3">For Sale</option>
-							</select>
-						</div>
+				</div>
+				<div class="form-group me-2">
+					<div class="input-box">
+						{{form_widget(form.prix)}}
 					</div>
-					<div class="form-group me-2">
-						<div class="input-box">
-							<select class="niceSelect">
-								<option value="1">Bedrooms</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
-						</div>
+				</div>
+				<div class="form-group me-2">
+					<div class="input-box">
+						{{form_widget(form.surface)}}
+
 					</div>
-					<div class="form-group me-2">
-						<div class="input-box">
-							<select class="niceSelect">
-								<option value="1">Bathrooms</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-							</select>
-						</div>
+				</div>
+				<div class="form-group me-2">
+					<div class="input-box">
+						{{form_widget(form.ville)}}
 					</div>
-					<div class="form-group text-center w-100">
-						<input type="submit" class="nir-btn w-100" id="submit3" value="Search">
-					</div>
-				</form>
+				</div>
+				<div class="form-group text-center w-100">
+					{{form_widget(form.Rechercher, {'attr' : {'class' : 'nir-btn w-100', 'onClick' : 'this.form.submit();'}})}}
+				</div>
+				{{ form_end(form) }}
 				<div class="listing-inner">
 					<div class="list-results d-flex align-items-center justify-content-between">
 						<div class="list-results-sort">

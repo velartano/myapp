@@ -1,0 +1,26 @@
+bien_create:
+    path: /biens/create
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\BienController::createBien
+
+bien_update:
+    path: /biens/update/{id}
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\BienController::updateBien
+
+bien_remove:
+    path: /biens/remove/{id}
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\BienController::removeBien
+
+
+bien_form:
+    path: /biens/form
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\BienController::create
+
+
+# bien_base:
+#     path: /biens/base
+#     # the controller value has the format 'controller_class::method_name'
+#     controller: App\Controller\BienController::testBase
