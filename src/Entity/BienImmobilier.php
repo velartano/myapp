@@ -165,7 +165,7 @@ class BienImmobilier
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
@@ -188,7 +188,7 @@ class BienImmobilier
         }
     }
 
-    public function getImageFile(): ?File
+    public function getImageFile(): File
     {
         return $this->imageFile;
     }

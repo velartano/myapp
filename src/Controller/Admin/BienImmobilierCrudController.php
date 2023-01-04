@@ -30,11 +30,11 @@ class BienImmobilierCrudController extends AbstractCrudController
             TextField::new('titre'),
             IntegerField::new('prix'),
             IntegerField::new('code_postal'),
-            TextEditorField::new('description'),
+            TextField::new('description'),
             TextField::new('localisation'),
             TextField::new('surface'),
             // TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
-            ImageField::new('image')->setUploadDir('public/Uploads/images')->setBasePath('/uploads/images'),
+            ImageField::new('image')->setUploadDir('public/Uploads/images/products')->setBasePath('/uploads/images/products'),
             TextField::new('status'),
             AssociationField::new('categorie'),
         ];

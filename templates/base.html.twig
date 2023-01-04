@@ -130,21 +130,26 @@
 
 
 			{% block body %}
-
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
 
 				{#{{ include ('bodyHome.html.twig',ignore_missing=true) }}#}
 				{# au lieu de faire un include , le code va plenté
-												c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
-																									#}
-			{{ render(controller('App\\Controller\\bodyController::index' )) }}
+																c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
+																													#}
+				{{ render(controller('App\\Controller\\bodyController::index' )) }}
 
 
 			{% endblock %}
 
 
-				{% block footer %}
+			{% block footer %}
 				<!-- footer starts -->
-					<footer class="pt-10 footermain"> <div class="footer-upper pb-4">
+				<footer class="pt-10 footermain">
+					<div class="footer-upper pb-4">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
