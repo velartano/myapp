@@ -7,15 +7,10 @@ use App\Entity\Favoris;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Form\Type\BienType;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\ORM\EntityManagerInterface;
-use App\Repository\BienImmobilierRepository;
-
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Routing\Annotation\Route;
 
 class BienController extends AbstractController
 {
@@ -49,45 +44,44 @@ class BienController extends AbstractController
      */
     public function addToFavoris(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
-        $entityManager = $doctrine->getManager();
-
-        if (empty($_COOKIE['favoris'])) {
-            $_COOKIE['favoris'] = $id;
-        } else {
-            $favs = explode(";", $_COOKIE['favoris']);
-            $favs[] = $id;
-            $_COOKIE['favoris'] = implode(";", $favs);
+        $session = new Session(); // On récupère la session de l'utilisateur
+        
+        if (empty($session->get('favoris'))) { // S'il ny'a aucun favori on ajoute un 1er
+            $session->set('favoris', $id);
+        } else { // S'il y'avait déjà des favoris, on les complètent
+            $anciensFavs = $session->get('favoris');
+            $session->set('favoris', $anciensFavs . ";" . $id);
         }
-        // dd($_COOKIE['favoris']);
+        // dd($session);
 
         // Retour sur la vue précédente
-        $favs = explode(";", $_COOKIE['favoris']);
-        $route = $request->headers->get('referer');
-        return $this->redirectToRoute('app_afficher_bien', [
-            "favs" => $favs,
+        $route = $request->headers->get('referer'); // Route de la vue précedente
+        return $this->redirectToRoute($route [
+            // "favs" => $favs,
         ]);
     }
     /**
      * @Route("/bien/sendFavoris", name="app_bien_send_favs")
      */
-    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request, int $id): Response
+    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request): Response
     {
         $entityManager = $doctrine->getManager();
+        $session = new Session(); // On récupère la session de l'utilisateur
 
-        $favoris = explode(";", $_COOKIE['favoris']);
+        $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
         foreach ($favoris as $id_fav){
             $fav = new Favoris();
             $fav->setDate(new \DateTime());
-            $fav->setIdBien($id_fav);
+            $fav->setIdBien((int) $id_fav);
             $fav->setEmailPorteur($request->query->get('email_porteur'));
-
+ 
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
             $entityManager->persist($fav);
         }
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
-        unset($_SESSION['favoris']);
-
+        $session->clear();
+        
         // Retour sur la vue précédente
         $route = $request->headers->get('referer');
         return $this->redirect($route);
