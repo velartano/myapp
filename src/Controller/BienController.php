@@ -11,6 +11,8 @@ use App\Form\Type\BienType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 class BienController extends AbstractController
 {
@@ -63,17 +65,20 @@ class BienController extends AbstractController
     /**
      * @Route("/bien/sendFavoris", name="app_bien_send_favs")
      */
-    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request): Response
+    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request, MailerInterface $mailer): Response
     {
         $entityManager = $doctrine->getManager();
         $session = new Session(); // On récupère la session de l'utilisateur
 
+        $email_porteur = $request->query->get("email_porteur")
+        
         $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
+        $emailFavoris = "";
         foreach ($favoris as $id_fav){
             $fav = new Favoris();
             $fav->setDate(new \DateTime());
             $fav->setIdBien((int) $id_fav);
-            $fav->setEmailPorteur($request->query->get('email_porteur'));
+            $fav->setEmailPorteur($email_porteur);
  
             // tell Doctrine you want to (eventually) save the Product (no queries yet)
             $entityManager->persist($fav);
@@ -81,6 +86,20 @@ class BienController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
         $session->clear();
+
+        // Envoi du mail
+        $email = (new Email())
+            ->from('hello@example.com')
+            ->to($email_porteur)
+            //->cc('cc@example.com')
+            //->bcc('bcc@example.com')
+            //->replyTo('fabien@example.com')
+            //->priority(Email::PRIORITY_HIGH)
+            ->subject('Time for Symfony Mailer!')
+            ->text('Sending emails is fun again!')
+            ->html('<p>See Twig integration for better HTML integration!</p>');
+
+        $mailer->send($email);
         
         // Retour sur la vue précédente
         $route = $request->headers->get('referer');
