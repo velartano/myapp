@@ -70,12 +70,16 @@ class CategoriesController extends AbstractController
             $biens = $bienImmobilierRepository->search($searchData);
         }
 
+        $session = $request->getSession(); // On récupère la session de l'utilisateur
+        $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
+
         return $this->render('categories/index.html.twig', [
             'controller_name' => 'CategoriesController',
             'categories' => $categorieRepository->findAll(),
             'form' => $form->createView(),
             'biens' => $biens,
             'selectedBienId' => $id,
+            'favoris' => $favoris,
         ]);
     }
 }

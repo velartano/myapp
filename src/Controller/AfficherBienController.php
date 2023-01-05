@@ -15,6 +15,7 @@ use App\Form\Type\BienType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AfficherBienController extends AbstractController
@@ -32,7 +33,7 @@ class AfficherBienController extends AbstractController
                     'form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4',
             ],
         ]);
-        $categories =$categorieRepository->findAll();
+        $categories = $categorieRepository->findAll();
         $tabCat = ['Toutes categories' => null];
         foreach ($categories as $cat)
                 $tabCat[$cat->getTypeCat()] = $cat->getId();
@@ -78,14 +79,17 @@ class AfficherBienController extends AbstractController
             // dd($searchData);
             $biens = $bienImmobilierRepository->search($searchData);
         }
-        // dd($categorieRepository->findAll());
+        
+        $session = $request->getSession(); // On récupère la session de l'utilisateur
+        $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
+        
         return $this->render('afficher_bien/index.html.twig', [
             'controller_name' => 'AfficherBienController',
             'bienImmob' => $biens,
             'categories' => $categories,
             'form' => $form->createView(),
             'selectedBienId' => 0,
-
+            'favoris' => $favoris,
         ]);
     }
 }

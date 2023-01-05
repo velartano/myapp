@@ -46,21 +46,24 @@ class BienController extends AbstractController
      */
     public function addToFavoris(ManagerRegistry $doctrine, Request $request, int $id): Response
     {
-        $session = new Session(); // On récupère la session de l'utilisateur
+        $session = $request->getSession(); // On récupère la session de l'utilisateur
         
         if (empty($session->get('favoris'))) { // S'il ny'a aucun favori on ajoute un 1er
             $session->set('favoris', $id);
-        } else { // S'il y'avait déjà des favoris, on les complètent
-            $anciensFavs = $session->get('favoris');
-            $session->set('favoris', $anciensFavs . ";" . $id);
+        } else { // S'il y'avait déjà des favoris
+            $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
+            if (in_array($id, $favoris)) { // Retirer des favoris
+                unset($favoris[array_search($id . "", $favoris)]);
+                $session->set('favoris', implode(";", $favoris));
+            } else { // Ajouter aux favoris
+                $anciensFavs = $session->get('favoris');
+                $session->set('favoris', $anciensFavs . ";" . $id);
+            }
         }
-        // dd($session);
 
         // Retour sur la vue précédente
         $route = $request->headers->get('referer'); // Route de la vue précedente
-        return $this->redirectToRoute($route [
-            // "favs" => $favs,
-        ]);
+        return $this->redirect($route);
     }
     /**
      * @Route("/bien/sendFavoris", name="app_bien_send_favs")
@@ -68,9 +71,9 @@ class BienController extends AbstractController
     public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request, MailerInterface $mailer): Response
     {
         $entityManager = $doctrine->getManager();
-        $session = new Session(); // On récupère la session de l'utilisateur
+        $session = $request->getSession(); // On récupère la session de l'utilisateur
 
-        $email_porteur = $request->query->get("email_porteur")
+        $email_porteur = $request->query->get("email_porteur");
         
         $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
         $emailFavoris = "";
