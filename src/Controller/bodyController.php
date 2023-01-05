@@ -18,6 +18,7 @@ class bodyController extends AbstractController
     /**
      * @Route("/body/home")
      */
+
     public function index(BienImmobilierRepository $saferRepository, CategorieRepository $categorieRepository, MessageRepository $messageRepository): Response
     {
         return $this->render('bodyHome.html.twig', [

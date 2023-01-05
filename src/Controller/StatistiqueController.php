@@ -7,15 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\CategorieRepository;
 
-class AboutController extends AbstractController
+class StatistiqueController extends AbstractController
 {
     /**
-     * @Route("/about", name="app_about")
+     * @Route("/statistique", name="app_statistique")
      */
     public function index(CategorieRepository $categorieRepository): Response
     {
-        return $this->render('about/index.html.twig', [
-            'controller_name' => 'AboutController',
+        return $this->render('statistique/index.html.twig', [
+            'controller_name' => 'StatistiqueController',
             'categories' => $categorieRepository->findAll(),
         ]);
     }
