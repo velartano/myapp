@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use App\Repository\BienImmobilierRepository;
 
 class BienController extends AbstractController
 {
@@ -68,41 +69,49 @@ class BienController extends AbstractController
     /**
      * @Route("/bien/sendFavoris", name="app_bien_send_favs")
      */
-    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request, MailerInterface $mailer): Response
+    public function sendFavorisInMail(ManagerRegistry $doctrine, Request $request, BienImmobilierRepository $bienImmobilierRepository, MailerInterface $mailer): Response
     {
         $entityManager = $doctrine->getManager();
         $session = $request->getSession(); // On récupère la session de l'utilisateur
 
-        $email_porteur = $request->query->get("email_porteur");
-        
+        $email_porteur = $request->request->get("email_porteur");
+        // dd($session->get('favoris'));
         $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
-        $emailFavoris = "";
-        foreach ($favoris as $id_fav){
-            $fav = new Favoris();
-            $fav->setDate(new \DateTime());
-            $fav->setIdBien((int) $id_fav);
-            $fav->setEmailPorteur($email_porteur);
- 
-            // tell Doctrine you want to (eventually) save the Product (no queries yet)
-            $entityManager->persist($fav);
+        $email_content = "<h3>Liste de vos favoris</h3>";
+        $email_content .= "<ul>";
+        
+        if ($email_porteur != null) {
+            foreach ($favoris as $id_fav){
+                $fav = new Favoris();
+                $fav->setDate(new \DateTime());
+                $fav->setIdBien((int) $id_fav);
+                $fav->setEmailPorteur($email_porteur);
+
+                $bien = $bienImmobilierRepository->find(intval($id_fav));
+                $email_content .= "<li>" . $bien->getTitre() . "</li>";
+    
+                // tell Doctrine you want to (eventually) save the Product (no queries yet)
+                $entityManager->persist($fav);
+            }
+            // actually executes the queries (i.e. the INSERT query)
+            $entityManager->flush();
+            $session->clear();
+            $email_content .= "</ul>";
+
+            // Envoi du mail
+            $email = (new Email())
+                ->from('admin@safer-project.com')
+                ->to($email_porteur)
+                //->cc('cc@example.com')
+                //->bcc('bcc@example.com')
+                //->replyTo('fabien@example.com')
+                //->priority(Email::PRIORITY_HIGH)
+                ->subject('Ajout des favoris')
+                // ->text("Vous venez d'ajouter de nouveaux favoris !")
+                ->html($email_content);
+
+            $mailer->send($email);
         }
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
-        $session->clear();
-
-        // Envoi du mail
-        $email = (new Email())
-            ->from('hello@example.com')
-            ->to($email_porteur)
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Time for Symfony Mailer!')
-            ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>');
-
-        $mailer->send($email);
         
         // Retour sur la vue précédente
         $route = $request->headers->get('referer');
