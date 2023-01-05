@@ -20,9 +20,9 @@ final class Version20221229034410 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, titre VARCHAR(255) NOT NULL, description VARCHAR(255) NOT NULL, image VARCHAR(255) NOT NULL, commentaire VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('DROP TABLE etudiant');
-        $this->addSql('ALTER TABLE bien_immobilier ADD url VARCHAR(255) NOT NULL, DROP categorie VARCHAR(255) NOT NULL');
+        // $this->addSql('CREATE TABLE message (id INT AUTO_INCREMENT NOT NULL, titre VARCHAR (255) NOT NULL, description VARCHAR (255) NOT NULL, image VARCHAR (255) NOT NULL, commentaire VARCHAR (255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB');
+        // $this->addSql('DROP TABLE etudiant');
+        // $this->addSql('ALTER TABLE bien_immobilier ADD url VARCHAR (255) NOT NULL, DROP categorie VARCHAR (25) NOT NULL');
     }
 
     public function down(Schema $schema): void
@@ -30,6 +30,6 @@ final class Version20221229034410 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
 
         $this->addSql('DROP TABLE message');
-        $this->addSql('ALTER TABLE bien_immobilier DROP url, DROP categorie');
+        // $this->addSql('ALTER TABLE bien_immobilier DROP url, DROP categorie');
     }
 }

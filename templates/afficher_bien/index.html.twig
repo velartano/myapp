@@ -8,19 +8,19 @@
 	<section class="breadcrumb-main pb-0 pt-20" style="background-image: url(images/bg/bg2.jpg);">
 		<div
 			class="breadcrumb-outer"><!--	<div class="container">
-																								<div class="breadcrumb-content d-md-flex align-items-center pt-6">
-																									<h1 class="mb-0">Listing With Fullwidth</h1>
-																									<nav aria-label="breadcrumb">
-																										<ul class="breadcrumb">
-																											<li class="breadcrumb-item">
-																												<a href="#">Home</a>
-																											</li>
-																											<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
-																										</ul>
-																									</nav>
-																								</div>
-																							</div>
-																							-->
+																																																																								<div class="breadcrumb-content d-md-flex align-items-center pt-6">
+																																																																									<h1 class="mb-0">Listing With Fullwidth</h1>
+																																																																									<nav aria-label="breadcrumb">
+																																																																										<ul class="breadcrumb">
+																																																																											<li class="breadcrumb-item">
+																																																																												<a href="#">Home</a>
+																																																																											</li>
+																																																																											<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
+																																																																										</ul>
+																																																																									</nav>
+																																																																								</div>
+																																																																							</div>
+																																																																							-->
 		</div>
 		<div class="dot-overlay"></div>
 	</section>
@@ -36,13 +36,13 @@
 						{{form_widget(form.categorie)}}
 
 						{# <select class="niceSelect">
-																			<option value="0">Toutes catégories</option>
-																			{% for cat in categories %}
-																				<option value="{{cat.id}}" {% if selectedBienId == cat.id %} selected {% endif %}>
-																					{{cat.getTypeCat()}}
-																				</option>
-																			{% endfor %}
-																		</select> #}
+																																																																																											<option value="0">Toutes catégories</option>
+																																																																																											{% for cat in categories %}
+																																																																																												<option value="{{cat.id}}" {% if selectedBienId == cat.id %} selected {% endif %}>
+																																																																																													{{cat.getTypeCat()}}
+																																																																																												</option>
+																																																																																											{% endfor %}
+																																																																																										</select> #}
 
 					</div>
 				</div>
@@ -126,7 +126,11 @@
 															<i class="fa fa-eye"></i>
 														</li>
 														<li class="me-2">
-															<i class="fa fa-heart"></i>
+															favoriss :
+															{{ app.request.cookies.get('favoris') }}
+															<a href="{{ path('app_bien_add_to_favs', {'id' : bien.id}) }}">
+																<i class="fa fa-heart"></i>
+															</a>
 														</li>
 													</ul>
 												</div>
