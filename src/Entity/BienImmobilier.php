@@ -138,7 +138,7 @@ class BienImmobilier
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getImage()
     {
         return $this->image;
     }
@@ -150,7 +150,25 @@ class BienImmobilier
         return $this;
     }
 
-    public function getCategorie(): ?string
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile(): File
+    {
+        return $this->imageFile;
+    }
+
+
+    public function getCategorie()
     {
         return $this->categorie;
     }

@@ -37,9 +37,124 @@
 	<body>
 
 		{% block header %}
-			{{ include ('newHeader.html.twig') }}
-		{% endblock %}
+			<!-- Preloader -->
+			<div id="preloader">
+				<div id="status"></div>
+			</div>
+			<!-- Preloader Ends -->
 
+			<!-- header starts -->
+			<header
+				class="main_header_area headerstye-1">
+				<!-- Navigation Bar -->
+				<div class="header_menu" id="header_menu">
+					<nav class="navbar navbar-default">
+						<div class="container">
+							<div
+								class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-3 pt-3">
+								<!-- Brand and toggle get grouped for better mobile display -->
+								<div class="navbar-header">
+									<a class="navbar-brand" href="index.html">
+										<img src="{{asset("assets/images/images/logo-white.png")}}" alt="image">
+										<img src="{{asset("assets/images/logo.png")}}" alt="image">
+									</a>
+								</div>
+								<!-- Collect the nav links, forms, and other content for toggling -->
+								<div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav" id="responsive-menu">
+										<li class="dropdown submenu active">
+											<a href="{{ path('app_header') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ACCUEIL
+
+											</a>
+
+										</li>
+
+										<li class="submenu dropdown">
+											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories
+												<i class="icon-arrow-down" aria-hidden="true"></i>
+											</a>
+											<ul class="dropdown-menu">
+
+												<li class="submenu dropdown">
+													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
+													</a>
+													<ul class="dropdown-menu">
+														<li>
+															<a href="{{path('app_categories_terrain')}}">TERRRAIN AGRICOLE</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_prairie')}}">PRAIRIE</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_bois')}}">BOIS</a>
+														</li>
+														<li>
+															<a href="{{path('app_categorie_batiments')}}">BATIMENTS</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
+														</li>
+														<li>
+															<a href="{{path('app_categories')}}">TOUTE categories</a>
+														</li>
+													</ul>
+												</li>
+
+											</ul>
+										</li>
+										<li class="submenu dropdown">
+											<a href="{{ path('app_afficher_bien') }}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Bien
+
+											</a>
+											<ul class="dropdown-menu"></ul>
+										</li>
+										<li>
+											<a href="{{path('app_contact')}}">Contact Us</a>
+										</li>
+									</div>
+
+									<!-- /.navbar-collapse -->
+
+									<div id="slicknav-mobile"></div>
+								</div>
+							</div>
+							<!-- /.container-fluid -->
+						</nav>
+					</div>
+					<!-- Navigation Bar Ends -->
+				</header>
+				<!-- header ends -->
+
+
+			{% endblock header %}
+
+
+			{% block body %}
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+
+				{#{{ include ('bodyHome.html.twig',ignore_missing=true) }}#}
+				{# au lieu de faire un include , le code va plenté
+																c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
+																													#}
+				{{ render(controller('App\\Controller\\bodyController::index' )) }}
+
+
+			{% endblock %}
+
+
+			{% block footer %}
+				<!-- footer starts -->
+				<footer class="pt-10 footermain">
+					<div class="footer-upper pb-4">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+									<div class="footer-about">
+										<img src="images/logo-white.png" alt="">
 
 		{% block body %}
 			{{ include ('bodyHome.html.twig', {'biens' : biens}

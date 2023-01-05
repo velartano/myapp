@@ -9,6 +9,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use app\Controller\contactType;
 use App\Form\ContactFormType;
+use App\Repository\ContactRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -24,19 +25,28 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="app_contact")
      */
-    public function index(Request $request, CategorieRepository $categorieRepository): Response
+
+    public function index(EntityManagerInterface $manager, Request $request): Response
+
     {
         $contact = new Contact();
 
         $form = $this->createForm(ContactFormType::class, $contact);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->contactRepository->save($contact, true);
+
+            $contact = $form->getData();
+            $manager->persist($contact);
+            $manager->flush();
+
             $this->addFlash(
                 'success',
                 'Votre message est bien envoyé'
             );
+
+            //return $this->redirectToRoute('/app_contact');
         }
 
         return $this->render('contact/index.html.twig', [
