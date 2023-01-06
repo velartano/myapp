@@ -88,7 +88,8 @@ class BienController extends AbstractController
                 $fav->setEmailPorteur($email_porteur);
 
                 $bien = $bienImmobilierRepository->find(intval($id_fav));
-                $email_content .= "<li>" . $bien->getTitre() . "</li>";
+                if ($bien != null)
+                    $email_content .= "<li>" . $bien->getTitre() . "</li>";
     
                 // tell Doctrine you want to (eventually) save the Product (no queries yet)
                 $entityManager->persist($fav);
