@@ -68,7 +68,7 @@ class BienImmobilierRepository extends ServiceEntityRepository
             ->andWhere("bien.titre like '%" . $criteres['titre'] . "%'")
             ->andWhere(($criteres['prix'] != null) ? 'bien.prix <= ' . $criteres['prix'] : null)
             ->andWhere(($criteres['surface'] != null) ? 'bien.surface <= ' . $criteres['surface'] : null)
-            ->andWhere("bien.ville like '%" . $criteres['ville'] . "%'")
+            // ->andWhere("bien.localisation like '%" . $criteres['localisation'] . "%'")
             ->getQuery()
             ->getResult();
     }

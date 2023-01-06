@@ -17,7 +17,7 @@ class BienType extends AbstractType {
     { 
         $builder->add('titre', TextType :: class)
                  ->add('prix', IntegerType :: class)
-                 ->add('ville', TextType :: class)
+                 ->add('localisation', TextType :: class)
                  ->add('surface', TextType :: class);
                  //->add('Enregistrer', SubmitType :: class);
     }

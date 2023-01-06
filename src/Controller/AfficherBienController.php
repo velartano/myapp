@@ -61,10 +61,10 @@ class AfficherBienController extends AbstractController
                 'attr' => ['class' => 'nice-select niceSelect'],
                 'attr' => ['placeholder' => 'Surface m2'],
             ])
-            ->add('ville', TextType::class, [
+            ->add('localisation', TextType::class, [
                 'required' => false,
                 'attr' => ['class' => 'nice-select niceSelect'],
-                'attr' => ['placeholder' => 'Ville'],
+                'attr' => ['placeholder' => 'localisation'],
             ])
             ->add('Rechercher', SubmitType::class);
 
@@ -78,11 +78,12 @@ class AfficherBienController extends AbstractController
             $searchData['cat_id'] = $searchData['categorie'];
             // dd($searchData);
             $biens = $bienImmobilierRepository->search($searchData);
+            // dd($biens);
         }
         
         $session = $request->getSession(); // On récupère la session de l'utilisateur
         $favoris = explode(";", $session->get('favoris')); // On récupère tous les favoris de la session en cours
-        
+
         return $this->render('afficher_bien/index.html.twig', [
             'controller_name' => 'AfficherBienController',
             'bienImmob' => $biens,

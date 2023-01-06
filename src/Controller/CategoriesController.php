@@ -52,10 +52,10 @@ class CategoriesController extends AbstractController
                 'attr' => ['class' => 'nice-select niceSelect'],
                 'attr' => ['placeholder' => 'Surface m2'],
             ])
-            ->add('ville', TextType::class, [
+            ->add('localisation', TextType::class, [
                 'required' => false,
                 'attr' => ['class' => 'nice-select niceSelect'],
-                'attr' => ['placeholder' => 'Ville'],
+                'attr' => ['placeholder' => 'localisation'],
             ])
             ->add('Rechercher', SubmitType::class);
 

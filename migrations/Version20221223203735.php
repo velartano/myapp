@@ -29,7 +29,7 @@ final class Version20221223203735 extends AbstractMigration
         image VARCHAR(255) , 
         code_postal INT NOT NULL,
         description VARCHAR(255), 
-        ville VARCHAR(255), 
+        localisation VARCHAR(255), 
         surface VARCHAR(255), 
         categorie_id INT, 
         PRIMARY KEY(id)) 

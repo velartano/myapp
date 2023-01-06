@@ -53,7 +53,7 @@ INSERT INTO `SAFER` (`Référence`, `Intitulé`, `Descriptif`, `Localisation`, `
 ('38TB22187', 'Vallons du Voironnais', '13 Ha de terrain', '38500', '13Ha', '2000', 'Location', 'Terrain agricole'),
 ('43LM220118', 'Prairies en pays glazik', 'Usage petits animaux type caprins', '29510', '1ha22', '15000', 'Vente', 'Prairie'),
 ('44 22 AN 08', 'B?timents avicoles ? transmettre', 'Site avicole ? transmettre sur la commune de Nort-sur-Erdre, au nord de Nantes.', '44220', '2Ha', '200000', 'Vente', 'Batiments'),
-('47.06.098', 'PRET A USAGE sur 95 ha - PLAINE DES VOSGES ', ' A 5 min de Villeneuve-sur-Lot', '47300', '14Ha', '11000', 'Location', 'Terrain agricole'),
+('47.06.098', 'PRET A USAGE sur 95 ha - PLAINE DES VOSGES ', ' A 5 min de localisationneuve-sur-Lot', '47300', '14Ha', '11000', 'Location', 'Terrain agricole'),
 ('48EL11345', 'Propri?t? Loz?re', 'Ensemble b?ti avec environ 1ha55', '48370', '1Ha55', '700', 'Location', 'Batiments'),
 ('48RE11201', 'Situ? ? 15 minutes de Mende', 'id?al pour polyculture sur 14 ha', '30430', '10Ha', '1300', 'Location', 'Terrain agricole'),
 ('55VS', 'Propri?t? Meuse', 'FERME DE COURUPT : Secteur Sainte-Menehould / Clermont-en-Argonne / Revigny', '88340', '59Ha', 'Nous consulter', 'Location', 'Exploitations'),
