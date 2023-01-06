@@ -37,11 +37,6 @@
 	<body>
 
 		{% block header %}
-			<!-- Preloader -->
-			<div id="preloader">
-				<div id="status"></div>
-			</div>
-			<!-- Preloader Ends -->
 
 			<!-- header starts -->
 			<header
@@ -78,24 +73,20 @@
 												<li class="submenu dropdown">
 													<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories List<i class="fa fa-angle-right" aria-hidden="true"></i>
 													</a>
-													<ul class="dropdown-menu">
+													<ul
+														class="dropdown-menu">
+														{# AFFICHAGE DES CATEGORIES PAR BIEN #}
+														{% for cat in categories %}
+															<li>
+																<a href="{{ path('app_categories', {'id' : cat.id}) }}">{{cat.getTypeCat()}}
+																</a>
+															</li>
+
+														{% endfor %}
 														<li>
-															<a href="{{path('app_categories_terrain')}}">TERRRAIN AGRICOLE</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_prairie')}}">PRAIRIE</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_bois')}}">BOIS</a>
-														</li>
-														<li>
-															<a href="{{path('app_categorie_batiments')}}">BATIMENTS</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories_exploitations')}}">EXPLOITATION</a>
-														</li>
-														<li>
-															<a href="{{path('app_categories')}}">TOUTE categories</a>
+															<a href="{{ path('app_categories', {'id' : 0}) }}">
+																Toutes categories
+															</a>
 														</li>
 													</ul>
 												</li>
@@ -130,46 +121,75 @@
 
 
 			{% block body %}
-				{% for message in app.flashes('success') %}
-					<div class="alert alert-success">
-						{{ message }}
-					</div>
-				{% endfor %}
+			{#		{% for message in app.flashes('success') %}
+																																										<div class="alert alert-success">
+																																											{{ message }}
+																																										</div>
+																																									{% endfor %}
+																																							#}
 
-				{#{{ include ('bodyHome.html.twig',ignore_missing=true) }}#}
-				{# au lieu de faire un include , le code va plenté
-																c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
-																													#}
-				{{ render(controller('App\\Controller\\bodyController::index' )) }}
-
-
-			{% endblock %}
+			{#{{ include ('bodyHome.html.twig',ignore_missing=true) }}#}
+			{# au lieu de faire un include , le code va plenté
+																																																																													c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
+																																																																																										#}
+			{{ render(controller('App\\Controller\\bodyController::index' )) }}
 
 
-			{% block footer %}
+				{#	{% block body %}
+				{{ include ('bodyHome.html.twig', {'biens' : biens}
+			) }}
+				{% endblock %}#}
+
 				<!-- footer starts -->
-				<footer class="pt-10 footermain">
-					<div class="footer-upper pb-4">
+					<footer class="pt-10 footermain"> <div class="footer-upper pb-4">
 						<div class="container">
 							<div class="row">
 								<div class="col-lg-4 col-md-6 col-sm-12 mb-4">
 									<div class="footer-about">
-										<img src="images/logo-white.png" alt="">
-
-		{% block body %}
-			{{ include ('bodyHome.html.twig', {'biens' : biens}
-			) }}
-		{% endblock %}
-
-
-		{% block footer %}
-			{{ include ('newFooter.html.twig') }}
-		{% endblock %}
+										<img
+										src="images/logo-white.png" alt="">
+										<!--			<p class="mt-3 mb-3 white">
+																																																																																																																																																																																													Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
+																																																																																																																																																																																												</p>
+																																																																																																																																																																																												-->
+										<ul>
+											<li class="white">
+												<strong>PO Box:</strong>
+												+47-252-254-2542</li>
+											<li class="white">
+												<strong>Location:</strong>
+												Collins Street, sydney, Australia</li>
+											<li class="white">
+												<strong>Email:</strong>
+												info@realshield.com</li>
+											<li class="white">
+												<strong>Website:</strong>
+												www.realshield.com</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-copyright pt-2 pb-2">
+					<div class="container">
+						<div class="copyright-inner d-md-flex align-items-center justify-content-between">
+							<div class="copyright-text">
+								<p class="m-0 white">2022 Copyright All rights reserved.</p>
+							</div>
+							<div class="social-links">
+								<ul>
+									<li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+		</body>
 	</body>
-	<script src="{{asset("assets/js/jquery-3.5.1.min.js")}}"></script>
-	<script src="{{asset("assets/js/bootstrap.min.js")}}"></script>
-	<script src="{{asset("assets/js/plugin.js")}}"></script>
-	<script src="{{asset("assets/js/main.js")}}"></script>
-	<script src="{{asset("assets/js/custom-swiper.js")}}"></script>
-	<script src="{{asset("assets/js/custom-nav.js")}}"></script>
-</html></body></html></body></html>
+</html></footer><!-- footer ends --></body><script src="{{asset("assets/js/jquery-3.5.1.min.js")}}"></script><script src="{{asset("assets/js/bootstrap.min.js")}}"></script><script src="{{asset("assets/js/plugin.js")}}"></script><script src="{{asset("assets/js/main.js")}}"></script><script src="{{asset("assets/js/custom-swiper.js")}}"></script><script src="{{asset("assets/js/custom-nav.js")}}"></script></body></html></body></html></body></html>

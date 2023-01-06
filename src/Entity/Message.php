@@ -4,9 +4,11 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=MessageRepository::class)
+ * @Vich\Uploadable
  */
 class Message
 {
@@ -33,9 +35,18 @@ class Message
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $commentaire;
+
+
+
 
     public function getId(): ?int
     {
@@ -77,10 +88,30 @@ class Message
 
         return $this;
     }
+    public function getupdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
 
     public function getCommentaire(): ?string
     {
         return $this->commentaire;
+    }
+
+    public function setImageFile($image = null)
+    {
+        $this->imageFile = $image;
+
+
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function setCommentaire(string $commentaire): self

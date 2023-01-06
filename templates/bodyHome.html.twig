@@ -3,66 +3,27 @@
 	<section class="banner overflow-hidden">
 		<div class="slider">
 			<div class="swiper-container">
-				<div
-					class="swiper-wrapper">
-					<!--
-															{% for message in Messages %}
-																<div class="swiper-slide">
-																	<div class="slide-inner">
-																		<div class="slide-image" style="background-image:url({{ vich_uploader_asset(message ,'imageFile')}})"></div>
-																		<div class="swiper-content">
-																			<div class="entry-meta mb-0">
-																				<span class="entry-category">
-																					<a href="listing-leftfilter.html" class="white">
-																						{{message.titre}}</a>
-																				</span>
-																			</div>
-																			<h1 class="mb-1">
-																				<a href="detail-leftside.html" class="white">{{message.description}}</a>
-																			</h1>
-																			<p class="white mb-4">{{message.commentaire}}</p>
-																		</div>
-																		<div class="overlay"></div>
-																	</div>
-																</div>
-															{% endfor %}
-														-->
-					<div class="swiper-slide">
-						<div class="slide-inner">
-							<div class="slide-image" style="background-image:url(assets/images/SAFER/immo.jpg)"></div>
-							<div class="swiper-content">
-								<div class="entry-meta mb-0">
-									<span class="entry-category">
-										<a href="listing-leftfilter.html" class="white">
-											Real Estate Agency</a>
-									</span>
+				<div class="swiper-wrapper">
+					{% for message in Messages %}
+						<div class="swiper-slide">
+							<div class="slide-inner">
+								<div class="slide-image" style="background-image:url({{ vich_uploader_asset(message ,'imageFile')}})"></div>
+								<div class="swiper-content">
+									<div class="entry-meta mb-0">
+										<span class="entry-category">
+											<a href="listing-leftfilter.html" class="white">
+												{{message.titre}}</a>
+										</span>
+									</div>
+									<h1 class="mb-1">
+										<a href="detail-leftside.html" class="white">{{message.description}}</a>
+									</h1>
+									<p class="white mb-4">{{message.commentaire}}</p>
 								</div>
-								<h1 class="mb-1">
-									<a href="detail-leftside.html" class="white">Find Your Dream Apartment</a>
-								</h1>
-								<p class="white mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+								<div class="overlay"></div>
 							</div>
-							<div class="overlay"></div>
 						</div>
-					</div>
-					<div class="swiper-slide">
-						<div class="slide-inner">
-							<div class="slide-image" style="background-image:url(assets/images/SAFER/immo3.jpg)"></div>
-							<div class="swiper-content">
-								<div class="entry-meta mb-0">
-									<span class="entry-category">
-										<a href="listing-leftfilter.html" class="white">
-											Real Estate Agency</a>
-									</span>
-								</div>
-								<h1 class="mb-1">
-									<a href="detail-leftside.html" class="white">Search Properties for Sale and To Rent</a>
-								</h1>
-								<p class="white mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-							</div>
-							<div class="overlay"></div>
-						</div>
-					</div>
+					{% endfor %}
 
 
 				</div>
@@ -130,7 +91,7 @@
 					</div>
 
 					<div class="trend-btn text-center">
-						<a href="#" class="nir-btn">View All Listings</a>
+						<a href="#" class="nir-btn">Voir Toute La Liste</a>
 					</div>
 				</div>
 			</div>
@@ -146,22 +107,24 @@
 					</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
-				<div class="category-main-inner">
-					<div class="row side-slider">
-						{% for categorie in Categories %}
-							<div class="col-lg-3 col-md-6 my-4">
-								<div class="category-item box-shadow p-4 py-6 text-center">
-									<i class="fa fa-archive mb-2"></i>
-									<div class="trending-topic-content">
-										<h4 class="mb-1">
-											<a href="grid-leftfilter.html">{{categorie.typecat}}</a>
-										</h4>
-										<span>22 Properties</span>
-									</div>
-								</div>
-							</div>
-						{%  endfor %}
-					</div>
+				<div
+					class="category-main-inner">{#
+																																			<div class="row side-slider">
+																																				{% for categorie in Categorie %}
+																																					<div class="col-lg-3 col-md-6 my-4">
+																																						<div class="category-item box-shadow p-4 py-6 text-center">
+																																							<i class="fa fa-archive mb-2"></i>
+																																							<div class="trending-topic-content">
+																																								<h4 class="mb-1">
+																																									<a href="grid-leftfilter.html">{{categorie.typecat}}</a>
+																																								</h4>
+																																								<span>22 Properties</span>
+																																							</div>
+																																						</div>
+																																					</div>
+																																				{%  endfor %}
+																																			</div>
+																																			#}
 				</div>
 			</div>
 		</section>
