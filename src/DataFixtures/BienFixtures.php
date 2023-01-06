@@ -16,12 +16,9 @@ class BienFixtures extends Fixture
                 ->setDescription("<p>Contenu du bien $i</p>")
                 ->setImage("http://placehold.it/800x534")
                 ->setCategorie("terrain agricole")
-                ->setLocalisation("35000")
                 ->setPrix(60000)
                 ->setSurface("54m2")
-                ->setCodePostal(35000)
-                ->setUrl("bien.com $i");
-
+                ->setCodePostal(35000);
 
             $manager->persist($bien);
         }

@@ -95,7 +95,9 @@
 														<i class="fa fa-eye"></i>
 													</li>
 													<li class="me-2">
-														<i class="fa fa-heart"></i>
+														<a href="{{ path('app_bien_add_to_favs', {'id' : bien.id}) }}">
+															<i class="fa fa-heart" {% if favoris != null and bien.id in favoris %} style="color: red;" {% endif %}></i>
+														</a>
 													</li>
 												</ul>
 											</div>

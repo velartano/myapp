@@ -20,7 +20,7 @@ final class Version20221229112914 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE bien_immobilier ADD categorie_id INT DEFAULT NULL');
+        // $this->addSql('ALTER TABLE bien_immobilier ADD categorie_id INT DEFAULT NULL');
         $this->addSql('ALTER TABLE bien_immobilier ADD CONSTRAINT FK_D1BE34E1BCF5E72D FOREIGN KEY (categorie_id) REFERENCES categorie (id)');
         $this->addSql('CREATE INDEX IDX_D1BE34E1BCF5E72D ON bien_immobilier (categorie_id)');
     }

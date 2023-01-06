@@ -126,7 +126,9 @@
 															<i class="fa fa-eye"></i>
 														</li>
 														<li class="me-2">
-															<i class="fa fa-heart"></i>
+															<a href="{{ path('app_bien_add_to_favs', {'id' : bien.id}) }}">
+																<i class="fa fa-heart" {% if favoris != null and bien.id in favoris %} style="color: red;" {% endif %}></i>
+															</a>
 														</li>
 													</ul>
 												</div>
@@ -184,11 +186,39 @@
 	<!-- blog Ends -->
 
 
-	<!-- Back to top start -->
-	<div id="back-to-top">
-		<a href="#"></a>
+	<!-- content-line start -->
+	<div class="content-line m-0">
+		<div class="content-line-inner bg-theme2 pb-6 pt-6 p-5">
+			<div class="container">
+				<div class="row d-md-flex align-items-center justify-content-between text-lg-start text-center">
+					<div class="col-lg-9">
+						<h2 class="mb-0 white">
+							Envoyer tous vos favoris par mail ici.
+						</h2>
+						<form
+							method="POST" action="{{ path('app_bien_send_favs') }}" class="emailForm">
+							{# <p class="white">Email:</p> #}
+							<div class="row col-lg-9">
+								<label class="white" for="email_porteur">Email:</label>
+								<input type="text" name="email_porteur" placeholder="Entrez votre adresse mail"/>
+								<button onclick="this.form.submit();" class="nir-btn-black float-lg-end float-none">Envoyer
+									<i class="fa fa-send"></i>
+								</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+
+			</div>
+		</div>
 	</div>
-	<!-- Back to top ends -->
+</div>
+<!-- content-line ends -->
 
 
-{% endblock %}
+<!-- Back to top start -->
+<div id="back-to-top">
+	<a href="#"></a>
+</div>
+<!-- Back to top ends -->{% endblock %}
