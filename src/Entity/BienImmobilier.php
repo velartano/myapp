@@ -3,10 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\BienImmobilierRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=BienImmobilierRepository::class)
+ * @Vich\Uploadable
  */
 class BienImmobilier
 {
@@ -41,7 +46,7 @@ class BienImmobilier
     /**
      * @ORM\Column(type="string", length=25)
      */
-    private $ville;
+    private $localisation;
 
     /**
      * @ORM\Column(type="string", length=10)
@@ -54,11 +59,28 @@ class BienImmobilier
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
+     * @var File
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updatedAt;
+
+    /**
+     * 
      * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="bienImmobiliers")
+     * 
      */
     private $categorie;
 
-
+    /**
+     * @ORM\Column(type="string", length=25)
+     */
+    private $status;
 
 
     public function getId(): ?int
@@ -77,6 +99,11 @@ class BienImmobilier
 
         return $this;
     }
+    public function getupdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
 
     public function getPrix(): ?int
     {
@@ -114,14 +141,14 @@ class BienImmobilier
         return $this;
     }
 
-    public function getville(): ?string
+    public function getLocalisation(): ?string
     {
-        return $this->ville;
+        return $this->localisation;
     }
 
-    public function setville(string $ville): self
+    public function setLocalisation(string $localisation): self
     {
-        $this->ville = $ville;
+        $this->localisation = $localisation;
 
         return $this;
     }
@@ -138,20 +165,19 @@ class BienImmobilier
         return $this;
     }
 
-    public function getImage()
+    public function getImage(): ?string
     {
         return $this->image;
     }
 
     public function setImage(string $image): self
     {
-        $this->image = $image;
+        $this->imageFile = $image;
 
         return $this;
     }
 
-
-    public function setImageFile(File $image = null)
+    public function setImageFile($image = null)
     {
         $this->imageFile = $image;
 
@@ -162,7 +188,7 @@ class BienImmobilier
         }
     }
 
-    public function getImageFile(): File
+    public function getImageFile()
     {
         return $this->imageFile;
     }
@@ -173,9 +199,21 @@ class BienImmobilier
         return $this->categorie;
     }
 
-    public function setCategorie(string $categorie): self
+    public function setCategorie(Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
 
         return $this;
     }

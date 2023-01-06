@@ -19,11 +19,11 @@ class bodyController extends AbstractController
      * @Route("/body/home")
      */
 
-    public function index(BienImmobilierRepository $saferRepository, CategorieRepository $categorieRepository, MessageRepository $messageRepository): Response
+    public function index(BienImmobilierRepository $saferRepository, categorieRepository $categorieRepository, MessageRepository $messageRepository): Response
     {
         return $this->render('bodyHome.html.twig', [
             'biens' => $saferRepository->findAll(),
-            'Categories' => $categorieRepository->findAll(),
+            'categories' => $categorieRepository->findAll(),
             'Messages' => $messageRepository->findAll(),
         ]);
     }

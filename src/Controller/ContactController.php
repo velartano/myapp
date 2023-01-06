@@ -26,7 +26,7 @@ class ContactController extends AbstractController
      * @Route("/contact", name="app_contact")
      */
 
-    public function index(EntityManagerInterface $manager, Request $request): Response
+    public function index(EntityManagerInterface $manager, Request $request, CategorieRepository $categorieRepository): Response
 
     {
         $contact = new Contact();
@@ -38,6 +38,7 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $contact = $form->getData();
+
             $manager->persist($contact);
             $manager->flush();
 
@@ -51,7 +52,8 @@ class ContactController extends AbstractController
 
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',
-            'formcontact' => $form->createView()
+            'formcontact' => $form->createView(),
+            'categories' => $categorieRepository->findAll(),
         ]);
     }
 }

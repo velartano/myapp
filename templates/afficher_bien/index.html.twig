@@ -8,19 +8,19 @@
 	<section class="breadcrumb-main pb-0 pt-20" style="background-image: url(images/bg/bg2.jpg);">
 		<div
 			class="breadcrumb-outer"><!--	<div class="container">
-																								<div class="breadcrumb-content d-md-flex align-items-center pt-6">
-																									<h1 class="mb-0">Listing With Fullwidth</h1>
-																									<nav aria-label="breadcrumb">
-																										<ul class="breadcrumb">
-																											<li class="breadcrumb-item">
-																												<a href="#">Home</a>
-																											</li>
-																											<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
-																										</ul>
-																									</nav>
-																								</div>
-																							</div>
-																							-->
+																																												<div class="breadcrumb-content d-md-flex align-items-center pt-6">
+																																													<h1 class="mb-0">Listing With Fullwidth</h1>
+																																													<nav aria-label="breadcrumb">
+																																														<ul class="breadcrumb">
+																																															<li class="breadcrumb-item">
+																																																<a href="#">Home</a>
+																																															</li>
+																																															<li class="breadcrumb-item active" aria-current="page">Listing With Fullwidth</li>
+																																														</ul>
+																																													</nav>
+																																												</div>
+																																											</div>
+																																											-->
 		</div>
 		<div class="dot-overlay"></div>
 	</section>
@@ -36,13 +36,13 @@
 						{{form_widget(form.categorie)}}
 
 						{# <select class="niceSelect">
-																			<option value="0">Toutes catégories</option>
-																			{% for cat in categories %}
-																				<option value="{{cat.id}}" {% if selectedBienId == cat.id %} selected {% endif %}>
-																					{{cat.getTypeCat()}}
-																				</option>
-																			{% endfor %}
-																		</select> #}
+																																																	<option value="0">Toutes catégories</option>
+																																																	{% for cat in categories %}
+																																																		<option value="{{cat.id}}" {% if selectedBienId == cat.id %} selected {% endif %}>
+																																																			{{cat.getTypeCat()}}
+																																																		</option>
+																																																	{% endfor %}
+																																																</select> #}
 
 					</div>
 				</div>
@@ -106,7 +106,7 @@
 								<div class="row">
 									<div class="col-lg-5 col-md-4">
 										<div class="blog-image">
-											<a href="#" style="background-image: url(/images/trending/trending1.jpg);"></a>
+											<a href="#" style="background-image: url({{ vich_uploader_asset(bien ,'imageFile')}})"></a>
 										</div>
 									</div>
 									<div class="col-lg-7 col-md-8">
@@ -184,30 +184,11 @@
 	<!-- blog Ends -->
 
 
-	<!-- content-line start -->
-	<div class="content-line m-0">
-		<div class="content-line-inner bg-theme2 pb-6 pt-6 p-5">
-			<div class="container">
-				<div class="row d-md-flex align-items-center justify-content-between text-lg-start text-center">
-					<div class="col-lg-9">
-						<h2 class="mb-0 white">
-							Looking for a dream home?
-						</h2>
-						<p class="white">We can help you realize your dream of a new home</p>
-					</div>
-					<div class="col-lg-3">
-						<a href="" class="nir-btn-black float-lg-end float-none">Fine More Properties</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- content-line ends -->
-
-
 	<!-- Back to top start -->
 	<div id="back-to-top">
 		<a href="#"></a>
 	</div>
 	<!-- Back to top ends -->
+
+
 {% endblock %}
