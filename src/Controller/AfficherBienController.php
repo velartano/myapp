@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Safer;
 use App\Repository\BienImmobilierRepository;
 use App\Repository\CategorieRepository;
+use App\Repository\FavorisRepository;
 use App\Repository\SaferRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -25,7 +26,7 @@ class AfficherBienController extends AbstractController
      */
     public function index(CategorieRepository $categorieRepository,
   
-    BienImmobilierRepository $bienImmobilierRepository, Request $request): Response
+    BienImmobilierRepository $bienImmobilierRepository, FavorisRepository $favorisRepository, Request $request): Response
     {
         $form = $this->createForm(BienType::class, [
             'attr' => [
@@ -71,6 +72,8 @@ class AfficherBienController extends AbstractController
             
             // Récupération des données
         $biens = $bienImmobilierRepository->findAll();
+        // $biens = $bienImmobilierRepository->findFavorisByCodePostal($favorisRepository, 352000);
+            // dd($biens);
         // Traitement de la recherche
             $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

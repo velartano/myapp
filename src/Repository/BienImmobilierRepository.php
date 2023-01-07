@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\BienImmobilier;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\FavorisRepository;
 
 /**
  * @extends ServiceEntityRepository<BienImmobilier>
@@ -72,6 +73,43 @@ class BienImmobilierRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findFavoris(FavorisRepository $favorisRepository): array
+    {
+        $favs = $favorisRepository->findBiens();
+        // dd($favs);
+        return $this->createQueryBuilder('bien')
+            ->select('bien')
+            ->where("bien.id IN(:favs)")
+            ->setParameter('favs', array_values($favs))
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findFavorisByCodePostal(FavorisRepository $favorisRepository, int $codePostal): array
+    {
+        $favs = $favorisRepository->findBiens();
+        // dd($favs);
+        return $this->createQueryBuilder('bien')
+            ->select('bien')
+            ->where("bien.id IN(:favs)")
+            ->setParameter('favs', array_values($favs))
+            ->andWhere("bien.codePostal = " . $codePostal)
+            ->getQuery()
+            ->getResult();
+    }
+
+    // public function findFavoris(): array
+    // {
+    //     $favoris = 
+    //     return $this->createQueryBuilder('bien')
+    //         ->select('bien')
+    //         ->innerJoin('bien.id','u')
+    //         ->where("bien.id IN(:favIds)")
+    //         ->where("bien.id IN (SELECT DISTINCT id_bien FROM favoris)")
+    //         ->getQuery()
+    //         ->getResult();
+    // }
     //    /**
     //     * @return BienImmobilier[] Returns an array of BienImmobilier objects
     //     */

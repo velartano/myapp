@@ -39,6 +39,14 @@ class FavorisRepository extends ServiceEntityRepository
         }
     }
 
+    public function findBiens(): array
+    {
+        return $this->createQueryBuilder('fav')
+            ->select('fav.id_bien')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Favoris[] Returns an array of Favoris objects
 //     */
