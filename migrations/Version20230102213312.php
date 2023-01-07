@@ -21,13 +21,13 @@ final class Version20230102213312 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE bien_immobilier CHANGE updated_at updated_at DATETIME NOT NULL');
-        $this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL');
+        /*$this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL');*/
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE bien_immobilier CHANGE updated_at updated_at DATETIME DEFAULT NULL');
-        $this->addSql('ALTER TABLE user DROP is_verified');
+        /*$this->addSql('ALTER TABLE user DROP is_verified');*/
     }
 }

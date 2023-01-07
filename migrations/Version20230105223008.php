@@ -21,13 +21,13 @@ final class Version20230105223008 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE bien_immobilier CHANGE updated_at updated_at DATETIME NOT NULL');
-        $this->addSql('ALTER TABLE message ADD updated_at DATETIME NOT NULL');
+       /* $this->addSql('ALTER TABLE message ADD updated_at DATETIME NOT NULL');*/
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE bien_immobilier CHANGE updated_at updated_at DATETIME DEFAULT NULL');
-        $this->addSql('ALTER TABLE message DROP updated_at');
+        /*$this->addSql('ALTER TABLE message DROP updated_at');*/
     }
 }

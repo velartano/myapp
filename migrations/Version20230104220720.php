@@ -32,7 +32,7 @@ final class Version20230104220720 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE favoris');
-        $this->addSql('DROP TABLE message');
+        /*$this->addSql('DROP TABLE message');*/
         $this->addSql('ALTER TABLE bien_immobilier DROP FOREIGN KEY FK_D1BE34E1BCF5E72D');
         $this->addSql('DROP INDEX IDX_D1BE34E1BCF5E72D ON bien_immobilier');
         $this->addSql('ALTER TABLE bien_immobilier CHANGE description description VARCHAR(255) DEFAULT NULL, CHANGE localisation localisation VARCHAR(255) DEFAULT NULL, CHANGE surface surface VARCHAR(255) DEFAULT NULL, CHANGE image image VARCHAR(255) DEFAULT NULL');
