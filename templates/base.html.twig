@@ -9,7 +9,7 @@
 		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link
-		rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/favicon.png") }}">
+		rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/image-safer.jpg") }}">
 		<!-- Bootstrap core CSS -->
 		<link
 		href="{{ asset("assets/css/bootstrap.min.css") }}" rel="stylesheet" type="text/css">
@@ -50,8 +50,8 @@
 								<!-- Brand and toggle get grouped for better mobile display -->
 								<div class="navbar-header">
 									<a class="navbar-brand" href="index.html">
-										<img src="{{asset("assets/images/images/logo-white.png")}}" alt="image">
-										<img src="{{asset("assets/images/logo.png")}}" alt="image">
+										<img src="{{asset("assets/images/originsafe.png")}}" alt="image">
+										<img src="{{asset("assets/images/originsafe.png")}}" alt="image">
 									</a>
 								</div>
 								<!-- Collect the nav links, forms, and other content for toggling -->
@@ -122,16 +122,16 @@
 
 			{% block body %}
 			{#		{% for message in app.flashes('success') %}
-																																																<div class="alert alert-success">
-																																																	{{ message }}
-																																																</div>
-																																															{% endfor %}
-																																													#}
+																																																																					<div class="alert alert-success">
+																																																																						{{ message }}
+																																																																					</div>
+																																																																				{% endfor %}
+																																																																		#}
 
 			{#{{ include ('bodyHome.html.twig',ignore_missing=true) }}#}
 			{# au lieu de faire un include , le code va plenté
-																																																																																			c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
-																																																																																																#}
+																																																																																																								c'est mieux d'utiliser la route directeent qui appelle la fonction et ce que le controleur doit faire
+																																																																																																																					#}
 			{{ render(controller('App\\Controller\\bodyController::index' )) }}
 
 
@@ -149,9 +149,9 @@
 										<img
 										src="images/logo-white.png" alt="">
 										<!--			<p class="mt-3 mb-3 white">
-																																																																																																																																																																																																																	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
-																																																																																																																																																																																																																</p>
-																																																																																																																																																																																																																-->
+																																																																																																																																																																																																																																																																																							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
+																																																																																																																																																																																																																																																																																						</p>
+																																																																																																																																																																																																																																																																																						-->
 										<ul>
 											<li class="white">
 												<strong>PO Box:</strong>

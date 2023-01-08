@@ -7,6 +7,7 @@ use DateTime;
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -59,7 +60,7 @@ class BienImmobilier
     private $image;
 
     /**
-     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -153,6 +154,7 @@ class BienImmobilier
         return $this;
     }
 
+
     public function getSurface(): ?string
     {
         return $this->surface;
@@ -169,15 +171,15 @@ class BienImmobilier
     {
         return $this->image;
     }
-
-    public function setImage(string $image): self
+    //le probleme était ici il fallait ecrire image au lieu de ImageFile dans le this.
+    public function setImage($image)
     {
-        $this->imageFile = $image;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function setImageFile($image = null)
+    public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
 

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -29,13 +30,10 @@ class Message
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
+
 
     /**
-     * @Vich\UploadableField(mapping="products_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
      * @var File
      */
     private $imageFile;
@@ -45,6 +43,16 @@ class Message
      */
     private $commentaire;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $image;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \DateTime
+     */
+    private $updateAt;
 
 
 
@@ -77,6 +85,33 @@ class Message
         return $this;
     }
 
+    public function getCommentaire(): ?string
+    {
+        return $this->commentaire;
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+
+        if ($image) {
+            // if 'updatedAt' is not defined in your entity, use another property
+            $this->updateAt = new \DateTime('now');
+        }
+    }
+    public function setCommentaire(string $commentaire): self
+    {
+        $this->commentaire = $commentaire;
+
+        return $this;
+    }
+
     public function getImage(): ?string
     {
         return $this->image;
@@ -88,36 +123,9 @@ class Message
 
         return $this;
     }
-    public function getupdatedAt(): ?\DateTimeInterface
+
+    public function getupdateAt(): ?\DateTimeInterface
     {
-        return $this->updatedAt;
-    }
-
-    public function getCommentaire(): ?string
-    {
-        return $this->commentaire;
-    }
-
-    public function setImageFile($image = null)
-    {
-        $this->imageFile = $image;
-
-
-        if ($image) {
-            // if 'updatedAt' is not defined in your entity, use another property
-            $this->updatedAt = new \DateTime('now');
-        }
-    }
-
-    public function getImageFile()
-    {
-        return $this->imageFile;
-    }
-
-    public function setCommentaire(string $commentaire): self
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
+        return $this->updateAt;
     }
 }

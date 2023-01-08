@@ -36,7 +36,7 @@
 			<div class="container">
 				<div class="section-title mb-6 pb-1 w-75 mx-auto text-center">
 					<h2 class="m-0">IMMOBILIER
-						<span>TERRAINS</span>
+						<span>/ TERRAINS</span>
 					</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
@@ -102,29 +102,28 @@
 		<section class="category-main pb-6">
 			<div class="container">
 				<div class="section-title mb-2 pb-1 w-75 mx-auto text-center">
-					<h2 class="m-0">Choose Your
-						<span>Category</span>
+					<h2 class="m-0">Choisissez votre
+						<span>Categorie</span>
 					</h2>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 				</div>
-				<div
-					class="category-main-inner">{#
-																																			<div class="row side-slider">
-																																				{% for categorie in Categorie %}
-																																					<div class="col-lg-3 col-md-6 my-4">
-																																						<div class="category-item box-shadow p-4 py-6 text-center">
-																																							<i class="fa fa-archive mb-2"></i>
-																																							<div class="trending-topic-content">
-																																								<h4 class="mb-1">
-																																									<a href="grid-leftfilter.html">{{categorie.typecat}}</a>
-																																								</h4>
-																																								<span>22 Properties</span>
-																																							</div>
-																																						</div>
-																																					</div>
-																																				{%  endfor %}
-																																			</div>
-																																			#}
+				<div class="category-main-inner">
+					<div class="row side-slider">
+						{% for categorie in categories %}
+							<div class="col-lg-3 col-md-6 my-4">
+								<div class="category-item box-shadow p-4 py-6 text-center">
+									<i class="fa fa-archive mb-2"></i>
+									<div class="trending-topic-content">
+										<h4 class="mb-1">
+											<a href="grid-leftfilter.html">{{categorie.typecat}}</a>
+										</h4>
+										<span>22 Propriétés</span>
+									</div>
+								</div>
+							</div>
+						{%  endfor %}
+					</div>
+
 				</div>
 			</div>
 		</section>
@@ -138,21 +137,21 @@
 					<div class="row d-flex align-items-center justify-content-between">
 						<div class="col-lg-7 col-sm-12 mb-4">
 							<div class="about-content text-center text-lg-start">
-								<h4 class="theme d-inline-block">About Us</h4>
-								<h2 class="border-b mb-2 pb-2">The Leading Real Estate Rental Marketplace.</h2>
-								<p class="border-b mb-2 pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+								<h4 class="theme d-inline-block">A Propos de Nous</h4>
+								<h2 class="border-b mb-2 pb-2">Le principal marché de la location immobilière.</h2>
+								<p class="border-b mb-2 pb-2">SAFER est une entreprise qui fournit des biens aux porteurs de projet tout en les évitant de se deplacer
 									<br><br>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 								<div class="about-listing">
 									<ul class="d-flex justify-content-between">
 										<li>
 											<i class="fa fa-building theme"></i>
-											Smart Home Design</li>
+											Conception de maison intelligente</li>
 										<li>
 											<i class="fa fa-building theme"></i>
-											Beautiful Scene Around</li>
+											Belle scène autour</li>
 										<li>
 											<i class="fa fa-building theme"></i>
-											Complete 24/7 Security</li>
+											Sécurité complète 24h/24 et 7j/7</li>
 									</ul>
 								</div>
 							</div>
@@ -160,6 +159,7 @@
 						<div class="col-lg-5 col-sm-12 mb-4">
 							<div class="about-image p-3 box-shadow position-relative">
 								<img src="{{asset("assets/images/destination/destination3.jpg")}}" alt="" class="w-100">
+
 								<div class="video-button text-center">
 									<div class="call-button text-center">
 										<iframe type="button" class="play-btn js-video-button" width="490" height="500" src="{{asset("assets/images/real-estate1.mp4")}}"></iframe>
@@ -169,6 +169,7 @@
 								</div>
 								<div class="video-figure"></div>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -184,7 +185,7 @@
 							<i class="fa fa-users theme2 me-4"></i>
 							<div class="counter-content">
 								<h3 class="value mb-0">560</h3>
-								<span class="m-0">Total Area Square</span>
+								<span class="m-0">Carré de surface totale</span>
 							</div>
 						</div>
 					</div>
@@ -194,7 +195,7 @@
 							<i class="fa fa-plane theme2 me-4"></i>
 							<div class="counter-content">
 								<h3 class="value mb-0">530</h3>
-								<span class="m-0">Apartments Sold</span>
+								<span class="m-0">Appartements vendus</span>
 							</div>
 						</div>
 					</div>
@@ -204,7 +205,7 @@
 							<i class="fa fa-chart-bar theme2 me-4"></i>
 							<div class="counter-content">
 								<h3 class="value mb-0">624</h3>
-								<span class="m-0">Total Constructions</span>
+								<span class="m-0">Constructions totales</span>
 							</div>
 						</div>
 					</div>
@@ -214,7 +215,7 @@
 							<i class="fa fa-support theme2 me-4"></i>
 							<div class="counter-content">
 								<h3 class="value mb-0">340</h3>
-								<span class="m-0">Apartio Rooms</span>
+								<span class="m-0">Chambres Appartement</span>
 							</div>
 						</div>
 					</div>
@@ -228,14 +229,14 @@
 			<div class="row align-items-center mb-6 text-center text-lg-start">
 				<div class="col-lg-8">
 					<div class="section-title section-title-l pb-1">
-						<h2 class="m-0">Why
-							<span>Choose</span>
-							Us?</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h2 class="m-0">Pourquoi
+							<span>Nous</span>
+							Choisir?</h2>
+						<p>Le principal marché de la location immobilière.</p>
 					</div>
 				</div>
 				<div class="col-lg-4">
-					<a href="#" class="nir-btn float-lg-end float-none">View All Categories</a>
+					<a href="#" class="nir-btn float-lg-end float-none">Voir Toute les Categories</a>
 				</div>
 			</div>
 
@@ -250,7 +251,7 @@
 								</div>
 								<div class="why-us-content">
 									<h4>
-										<a href="about.html">Trusted By Thousands</a>
+										<a href="about.html">Approuvé par des milliers</a>
 									</h4>
 									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 								</div>
@@ -263,7 +264,7 @@
 								</div>
 								<div class="why-us-content">
 									<h4>
-										<a href="about.html">Wide Renge Properties</a>
+										<a href="about.html">Propriétés larges de Renge</a>
 									</h4>
 									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 								</div>
@@ -276,7 +277,7 @@
 								</div>
 								<div class="why-us-content">
 									<h4>
-										<a href="about.html">Financing Made Easy</a>
+										<a href="about.html">Le financement simplifié</a>
 									</h4>
 									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 								</div>
@@ -290,7 +291,7 @@
 								</div>
 								<div class="why-us-content">
 									<h4>
-										<a href="about.html">We are here near you</a>
+										<a href="about.html">Nous sommes ici près de chez vous</a>
 									</h4>
 									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
 								</div>
