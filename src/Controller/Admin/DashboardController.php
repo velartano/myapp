@@ -43,7 +43,7 @@ class DashboardController extends AbstractDashboardController
             'countBien' => $this->BienImmobilierRepository->countAllBien(),
             'countCategorie' => $this->CategorieRepository->countBycategorie(),
             'message' => $this->MessageRepository->countByMessage(),
-            'fav' => $this->FavorisRepository->findAll()
+            'fav' => $this->FavorisRepository->countByFav(),
         ]);
     }
 

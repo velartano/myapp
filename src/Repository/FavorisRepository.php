@@ -38,6 +38,13 @@ class FavorisRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function countByFav()
+    {
+        $queryBuilder = $this->createQueryBuilder('d');
+        $queryBuilder->select('COUNT(d.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
 
     public function findBiens(): array
     {
@@ -47,28 +54,47 @@ class FavorisRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-//    /**
-//     * @return Favoris[] Returns an array of Favoris objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findByDepartements(): array
+    {
+        $departements = $this->createQueryBuilder('bien')
+            ->select('DISTINCT bien.codePostal')
+            ->getQuery()
+            ->getResult();
+        // dd($departements);
 
-//    public function findOneBySomeField($value): ?Favoris
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        $biensParDep = [];
+        foreach ($departements as $dep) {
+            $biensParDep[$dep["codePostal"]] = $this->createQueryBuilder('bien')
+                ->select('bien')
+                ->where('bien.codePostal = ' . $dep["codePostal"])
+                ->getQuery()
+                ->getResult();
+        }
+        return $biensParDep;
+    }
+
+    //    /**
+    //     * @return Favoris[] Returns an array of Favoris objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('f')
+    //            ->andWhere('f.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('f.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?Favoris
+    //    {
+    //        return $this->createQueryBuilder('f')
+    //            ->andWhere('f.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

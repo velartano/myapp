@@ -74,6 +74,8 @@ class BienImmobilierRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+
     public function findFavoris(FavorisRepository $favorisRepository): array
     {
         $favs = $favorisRepository->findBiens();
