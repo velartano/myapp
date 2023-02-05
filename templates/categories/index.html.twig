@@ -9,13 +9,24 @@
 		<div class="breadcrumb-outer">
 			<div class="container">
 				<div class="breadcrumb-content d-md-flex align-items-center pt-6">
-					<h1 class="mb-0">Categorie (NOM)</h1>
+					<h1 class="mb-0">
+					{% if selected_cat != null %} 
+						Catégorie ({{ selected_cat.getTypeCat() }}) 
+						{% else %}
+						Tous les biens
+					{% endif %}
+					</h1>
 					<nav aria-label="breadcrumb">
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a>Home</a>
 							</li>
-							<li class="breadcrumb-item active" aria-current="page">Categorie (NOM)</li>
+							<li class="breadcrumb-item active" aria-current="page">
+							{% if selected_cat != null %} 
+						{{ selected_cat.getTypeCat() }}
+						{% else %}
+						Tous les biens
+					{% endif %}</li>
 						</ul>
 					</nav>
 				</div>

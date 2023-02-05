@@ -32,7 +32,7 @@ class CategoriesController extends AbstractController
         $form = $this->createForm(BienType::class, [
             'attr' => [
                 'class' =>
-                    'form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4',
+                'form-find d-lg-flex justify-content-between p-4 bg-grey borderall mb-4',
             ],
         ]);
         $form
@@ -59,11 +59,11 @@ class CategoriesController extends AbstractController
             ])
             ->add('Rechercher', SubmitType::class);
 
-            
-            // Récupération des données
+
+        // Récupération des données
         $biens = $id != 0 ? $bienImmobilierRepository->findByCat($id) : $bienImmobilierRepository->findAll();
         // Traitement de la recherche
-            $form->handleRequest($request);
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $searchData = $form->getData();
             $searchData['cat_id'] = $id;
@@ -80,6 +80,7 @@ class CategoriesController extends AbstractController
             'biens' => $biens,
             'selectedBienId' => $id,
             'favoris' => $favoris,
+            'selected_cat' => $categorieRepository->find($id) ?? null,
         ]);
     }
 }
